@@ -11,9 +11,9 @@
 				margin-top: 1rem auto;
                 margin-bottom: 1rem auto;
 				width: 100%;
-                height: fit-content;
-                
-				min-height: 300px;
+                /* height: 40em; */
+                height:fit-content;
+                min-height: 40em;
 
 
                 /* height: 500px; */
@@ -32,14 +32,18 @@
 			
 			.subcontainer1{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
 				width: 25%;
+                /* min-width: 10em; */
 			    border-left: 0;
 				/* float: left;		 */
 				box-sizing: border-box;
 				border: 1px solid black;
-                height: 100%;
+                /* height: 100%; */
+               
                 background-color:rgb(205, 119, 217);
                 color: white;
-            
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
 			}
 
             .subcontainer2{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
@@ -48,22 +52,30 @@
 				/* float: left;		 */
 				box-sizing: border-box;
 				border: 1px solid black;
-                height: 100%;
+                /* height: 100%; */
                 background-color:rgb(138, 74, 218);
                 color: white;
-            
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
+
+                /* min-width: 10em; */
 			}
 
             .subcontainer3{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
 				width: 25%;
-			    border-left: 0;
+			    /* border-left: 0; */
 				/* float: left;		 */
 				box-sizing: border-box;
 				border: 1px solid black;
-                height: 100%;
+                /* height: 100%; */
                 background-color:rgb(118, 154, 131);
                 color: white;
-            
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
+
+                /* min-width: 10em; */
 			}
 
             .subcontainer4{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
@@ -72,15 +84,18 @@
 				/* float: left;		 */
 				box-sizing: border-box;
 				border: 1px solid black;
-                height: 100%;
+             
               
                 
                 background-color:rgb(239, 229, 240);
                 color: rgb(55, 55, 55);
                 display: flex;
                 justify-content: center;
-              
-            
+                /* ************************************ */
+                padding: 2em;
+                /* ************************************ */
+/* 
+                min-width: 10em; */
 			}
 			
             h1{
@@ -96,7 +111,7 @@
 
           .menu{
             background-color: rgb(60, 60, 60);
-            height: 5em;
+            height: 6em;
             margin-bottom: 2em;
             position: sticky;
             top:0px;
@@ -118,21 +133,12 @@
             
           }
 .menu a{
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+    padding-top: 1.75em;
+    padding-bottom: 1.75em;
 }
 
 
-/* //////////////////////////////////////////////// */
-       
 
-          /* .logo{
-            background-image: url('Captura.PNG');
-          } */
-/* 
-          .menu.logo{
-
-          } */
 
           .opcionesmenu a:link
           {
@@ -161,6 +167,11 @@
             background-color: rgb(60, 60, 60);
             height: 8em;
             margin-top: 2em;
+            /* bottom:0px; */
+            
+            width: 100%;
+       
+            
           }
 
           /* .subcontainer4 img{
@@ -181,7 +192,7 @@
             bottom: 0;
             
             /* background-image: url('Captura.PNG'); */
-            
+            min-width: 5em;
            
           }
 
@@ -256,10 +267,11 @@
                 </div>
 
                 
-            <!-- <div class = "menu2"></div> -->
+           
       
 			
 						
 		</div>		
+        <div class = "menu2"></div>
 	</body>
 </html>
