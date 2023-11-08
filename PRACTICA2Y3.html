@@ -44,6 +44,7 @@
                 padding: 0.5em;
                 font-size:x-large;
                 line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 			}
 
             .subcontainer2{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
@@ -58,6 +59,7 @@
                 padding: 0.5em;
                 font-size:x-large;
                 line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
                 /* min-width: 10em; */
 			}
@@ -74,6 +76,7 @@
                 padding: 0.5em;
                 font-size:x-large;
                 line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
                 /* min-width: 10em; */
 			}
@@ -181,13 +184,18 @@
             background-position: left center;
             background-origin: content-box;
             background-size: contain;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
             
           }
 
           .menu2 li{
-            padding-left: 7rem;
+            padding-left: 8rem;
             list-style: none;
             line-height: 1.5;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
           }
 
 
@@ -221,7 +229,12 @@
 
           }
 
-        
+        .subcontainer4 input
+        {
+            border-radius: 5px;
+            width: 300px;
+            
+        }
 
             
             
@@ -278,7 +291,11 @@
                 </div>	
 
                 <div class="subcontainer4">
-
+                    <!-- <div > -->
+                        <form>
+                            <input type="text" id="buscador" placeholder="buscar una tarea">
+                        </form>
+                    <!-- </div> -->
                     <div class="contenedorcalendario"><img src="Captura.PNG"/></div>
               
                 </div>
@@ -290,9 +307,9 @@
 						
 		</div>		
         <div class = "menu2">
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-            <li>Lorem ipsum dolor sit amet</li>
+            <li>Dirección: False Street 123</li>
+            <li>Tel: 666123987</li>
+            <li>Políticas de privacidad y cookies</li>
          
         </div>
 	</body>
