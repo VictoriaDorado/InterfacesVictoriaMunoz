@@ -229,14 +229,154 @@
 
           }
 
-        .subcontainer4 input
+          .subcontainer4 #buscador{
+            height: 2em;
+            width: 40em;
+            background-color: aqua;
+          }
+
+        .subcontainer4 #buscador #buscador
         {
+          
             border-radius: 5px;
-            width: 300px;
+            width: 100%; 
+            height: 100%;
             
         }
 
+        .menu2 .redessociales
+        {
+            display:flex;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: flex-end;
             
+
+
+       
+          
+       
+            /* height: 20em;
+            width: 20em; */
+            
+        }
+
+/* 
+        .menu2 .redessociales #twitter
+        {
+            background-image: url("twitter.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+
+        .menu2 .redessociales #instagram
+        {
+            background-image: url("instagram.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+
+        .menu2 .redessociales #linkedin
+        {
+            background-image: url("linkedin.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+             */
+
+
+             
+        .menu2 .redessociales #twitter
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu2 .redessociales #instagram
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .menu2 .redessociales #linkedin
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .subcontainer4 .linksinternos
+        {
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
+
+        .subcontainer4 .linksinternos #link1
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 3em;
+            width: 3em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+
+        .subcontainer4 .linksinternos #link2
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 3em;
+            width: 3em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+          
+
+        .subcontainer4 .linksinternos #link3
+        {
+            background-image: url("logo.png");
+            background-repeat: no-repeat;
+            height: 3em;
+            width: 3em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+          
+          
             
 		</style>
 		
@@ -291,11 +431,19 @@
                 </div>	
 
                 <div class="subcontainer4">
-                    <!-- <div > -->
+                    <div id="buscador">
                         <form>
-                            <input type="text" id="buscador" placeholder="buscar una tarea">
+                            <input type="search" id="buscador" placeholder="buscar una tarea">
                         </form>
-                    <!-- </div> -->
+                    </div>
+
+                    <div class="linksinternos">
+                        <a href="#" id="link1"></a>
+                        <a href="#" id="link2"></a>
+                        <a href="#" id="link3"></a>
+                     </div>
+
+
                     <div class="contenedorcalendario"><img src="Captura.PNG"/></div>
               
                 </div>
@@ -310,7 +458,13 @@
             <li>Dirección: False Street 123</li>
             <li>Tel: 666123987</li>
             <li>Políticas de privacidad y cookies</li>
-         
+         <div class="redessociales">
+            <a href="#" id="linkedin"></a>
+            <a href="#" id="instagram"></a>
+            <a href="#" id="twitter"></a>
+         </div>
+
+         </div>
         </div>
 	</body>
 </html>
