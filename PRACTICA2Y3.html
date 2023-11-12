@@ -116,7 +116,7 @@
     align-items: center; /* Alinea los elementos en el centro horizontalmente */
     /* justify-content: center; Comentado para que no afecte el espacio entre la barra de búsqueda y los enlaces */
     /* ************************************ */
-    padding: 2em;
+    padding: 4em;
     /* ************************************ */
 
 
@@ -230,8 +230,8 @@
 
           } */
             
-          /* .contenedorcalendario
-          { */
+          .contenedorcalendario
+          { 
             /* padding: 1em; */
           
             /* position: absolute;
@@ -239,8 +239,8 @@
             
             /* background-image: url('Captura.PNG'); */
             /* min-width: 5em; */
-           
-          /* } */ 
+            margin-top: auto;
+           }  
 
           .contenedorcalendario img{
             width: 100%;
@@ -269,8 +269,8 @@
 
 
   height: 2em;
-    width: 20em;
-    background-color: aqua;
+  width: 80%;
+    /* background-color: aqua; */
     margin-bottom: 1em;
     position: relative; /* Cambiado de absolute a relative */
 
@@ -282,6 +282,7 @@
             border-radius: 5px;
             width: 100%; 
             height: 100%;
+            box-sizing: border-box;
 
          
             
@@ -381,9 +382,9 @@
 
         .container .subcontainer4 .linksinternos
         {
-            height: 3em; 
-            width: auto; 
-            background-color: rgb(255, 0, 204);
+            /* height: 3em;  */
+            width: 100%; 
+            /* background-color: rgb(255, 0, 204); */
             display:flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -391,17 +392,25 @@
             align-items: center;
             /* align-content: center; */
 
-    margin-bottom: 1em; /* Añadido para espaciar los enlaces de la imagen del calendario */
+    margin-bottom: auto; /* Añadido para espaciar los enlaces de la imagen del calendario */
 
             
         }
 
         .container .subcontainer4 .linksinternos a {
-            display: block;
-            height: 100%;
-            width: 3em;
-            margin: 0.3em;
-            background-size: contain;
+            /* display: block;
+            height: 100%; */
+            /* width: 3em; */
+            /* margin: 0.3em;
+            /* background-size: contain; */
+
+         height: 2vw; /* Ajusta según tus preferencias */
+         width: 2vw; /* Ajusta según tus preferencias */
+         margin: 1vw; /* Ajusta según tus preferencias */
+         background-size: contain;
+          
+   
+  
         }
 
         .container .subcontainer4 .linksinternos #link1
