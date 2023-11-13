@@ -163,9 +163,9 @@
  
 }
 
-/* .menu:hover{
+.menu:hover{
     background-image: url("meteorito.png"); 
-} */
+}
 
 
 
@@ -217,10 +217,10 @@
 
             
           }
-
+/* 
           .menu2:hover{
             box-shadow: 10px 10px 10px pink;
-          }
+          } */
 
           .menu2 li{
             padding-left: 8rem;
@@ -267,7 +267,16 @@
             /* background-color: aqua; */
             margin-bottom: 1em;
             position: relative;
+            float:left;
+            display: flex;
 
+          }
+
+          .subcontainer4 #buscador1 img{
+            width: 2em;
+            /* height: 2em; */
+            margin-right: 0.5em;
+           
           }
 
         .subcontainer4 #buscador1 #buscador2
@@ -463,6 +472,7 @@
 
                 <div class="subcontainer4">
                     <div id="buscador1">
+                        <img src="busqueda.png"></img>
                         <form>
                             <input type="search" id="buscador2" placeholder="buscar una tarea">
                         </form>
