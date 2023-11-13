@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contenedor fluid</title>
+		
+		<style type="text/css">
+			.container { /* El contenedor externo tiene las coordenadas derecha y abajo en el padding */
+				border: 0.1rem solid black;
+				margin-top: 1rem auto;
+                margin-bottom: 1rem auto;
+				width: 100%;
+                /* height: 40em; */
+                height:fit-content;
+                min-height: 40em;
+
+
+                /* height: 500px; */
+
+				position: center center;
+                position: relative;	
+
+				box-sizing: border-box;
+				/* overflow: auto; */
+				
+				font-size: 16px;
+                display:flex;
+				
+				
+			}
+			
+			.subcontainer1{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
+				width: 25%;
+                /* min-width: 10em; */
+			    border-left: 0;
+				/* float: left;		 */
+				box-sizing: border-box;
+				border: 1px solid black;
+                /* height: 100%; */
+               
+                background-color:rgb(205, 119, 217);
+                color: white;
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			}
+
+            .subcontainer2{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
+				width: 25%;
+			    border-left: 0;
+				/* float: left;		 */
+				box-sizing: border-box;
+				border: 1px solid black;
+                /* height: 100%; */
+                background-color:rgb(138, 74, 218);
+                color: white;
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                /* min-width: 10em; */
+			}
+
+            .subcontainer3{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
+				width: 25%;
+			    /* border-left: 0; */
+				/* float: left;		 */
+				box-sizing: border-box;
+				border: 1px solid black;
+                /* height: 100%; */
+                background-color:rgb(118, 154, 131);
+                color: white;
+                padding: 0.5em;
+                font-size:x-large;
+                line-height: 1.5;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                /* min-width: 10em; */
+			}
+
+            .subcontainer4{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
+				/* width: 25%;
+			
+				box-sizing: border-box;
+				border: 1px solid black;
+             
+              
+                
+                background-color:rgb(239, 229, 240);
+                color: rgb(55, 55, 55);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            
+                padding: 2em;
+            */
+
+
+
+
+
+
+
+
+
+                width: 25%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: rgb(239, 229, 240);
+    color: rgb(55, 55, 55);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los elementos en el centro horizontalmente */
+    /* justify-content: center; Comentado para que no afecte el espacio entre la barra de búsqueda y los enlaces */
+    /* ************************************ */
+    padding: 4em;
+    /* ************************************ */
+
+
+			}
+			
+            h1{
+                /* font-size:99%; */
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                text-align: center;
+                
+            }
+
+			p{
+				margin: 0;
+			}	
+
+          .menu{
+            background-color: rgb(60, 60, 60);
+            height: 6em;
+            margin-bottom: 2em;
+            position: sticky;
+            top:0px;
+            z-index: 1;
+            background-image: url('planeta.png');
+            background-repeat: no-repeat;
+            background-size: 4em;
+            padding: 0.5em;
+            box-sizing: border-box;
+            background-position: left center;
+            background-origin: content-box;
+            background-size: contain;
+            padding:1em;
+            /* display: flex;
+            justify-content: center; */
+           
+          
+            
+           
+            
+          }
+.menu a{
+    padding-top: 1.75em;
+    padding-bottom: 1.75em;
+ 
+}
+
+/* .menu:hover{
+    background-image: url("meteorito.png"); 
+} */
+
+
+
+
+          .opcionesmenu a:link
+          {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* margin-top: 1.5em;          */
+            color: white;
+            padding-right: 1.5em;
+            float: right;
+            text-decoration:none;
+                     
+          }
+
+          .opcionesmenu a:visited
+          {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 1.5em;         
+            color: rgb(205, 119, 217);
+            padding-right: 1.5em;
+            float: right;
+            text-decoration:none;
+                     
+          }
+
+
+          .menu2{
+            background-color: rgb(60, 60, 60);
+            height: 8em;
+            margin-top: 2em;
+            /* bottom:0px; */
+            
+            width: 100%;
+
+            color: white;
+       
+            background-image: url('planeta.PNG');
+            background-repeat: no-repeat;
+            background-size: 10%;
+            padding: 1.5em;
+            box-sizing: border-box;
+            background-position: left center;
+            background-origin: content-box;
+            background-size: contain;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            
+          }
+
+          .menu2:hover{
+            box-shadow: 10px 10px 10px pink;
+          }
+
+          .menu2 li{
+            padding-left: 8rem;
+            list-style: none;
+            line-height: 1.5;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          }
+
+
+          /* .subcontainer4 img{
+            position: relative;
+            
+          }
+
+          .logosuperior
+          {
+
+          } */
+            
+          .contenedorcalendario
+          { 
+            /* padding: 1em; */
+          
+            /* position: absolute;
+            bottom: 0;
+            
+            /* background-image: url('Captura.PNG'); */
+            /* min-width: 5em; */
+            margin-top: auto;
+           }  
+
+          .contenedorcalendario img{
+            width: 100%;
+            height: 100%;
+            /* min-width: 50px; */
+
+
+          }
+
+          .subcontainer4 #buscador1{
+   
+            height: 2em;
+            width: 90%;
+            /* background-color: aqua; */
+            margin-bottom: 1em;
+            position: relative;
+
+          }
+
+        .subcontainer4 #buscador1 #buscador2
+        {
+          
+            border-radius: 5px;
+            width: 100%; 
+            height: 100%;
+            box-sizing: border-box;
+
+         
+            
+        }
+
+        .menu2 .redessociales
+        {
+            display:flex;
+            flex-direction: row-reverse;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: flex-end;
+            
+
+
+       
+          
+       
+            /* height: 20em;
+            width: 20em; */
+            
+        }
+
+
+        .menu2 .redessociales #facebook
+        {
+            background-image: url("facebook.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+
+
+
+        .menu2 .redessociales #instagram
+        {
+            background-image: url("instagram.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+
+        .menu2 .redessociales #linkedin
+        {
+            background-image: url("linkedin.png");
+            background-repeat: no-repeat;
+            height: 2em;
+            width: 2em;
+            background-size: contain; 
+            margin:0.3em;
+        }
+            
+
+        .container .subcontainer4 .linksinternos
+        {
+            /* height: 3em;  */
+            width: 100%; 
+            /* background-color: rgb(255, 0, 204); */
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            /* align-content: center; */
+
+    margin-bottom: auto; /* Añadido para espaciar los enlaces de la imagen del calendario */
+
+            
+        }
+
+        .container .subcontainer4 .linksinternos a {
+            /* display: block;
+            height: 100%; */
+            /* width: 3em; */
+            /* margin: 0.3em;
+            /* background-size: contain; */
+
+         height: 2vw; /* Ajusta según tus preferencias */
+         width: 2vw; /* Ajusta según tus preferencias */
+         margin: 1vw; /* Ajusta según tus preferencias */
+         background-size: contain;
+          
+   
+  
+        }
+
+        .container .subcontainer4 .linksinternos #link1
+        {
+            background-image: url("usuarios.png");
+            background-repeat: no-repeat;
+        
+        }
+        .container .subcontainer4 .linksinternos #link1:hover
+        {
+           /* border: 1px  dotted red; */
+           box-shadow: 0px 0px 15px black;
+        
+        }
+
+        .container .subcontainer4 .linksinternos #link2
+        {
+            background-image: url("grafico.png");
+            background-repeat: no-repeat;
+       
+        }
+
+        .container .subcontainer4 .linksinternos #link2:hover
+        {
+            box-shadow: 0px 0px 15px black;
+       
+        }
+          
+
+        .container .subcontainer4 .linksinternos #link3
+        {
+            background-image: url("basura.png");
+            background-repeat: no-repeat;
+        
+        }
+
+        .container .subcontainer4 .linksinternos #link3:hover
+        {
+            box-shadow: 0px 0px 15px black;
+        }
+          
+          
+          
+            
+		</style>
+		
+	</head>
+	<body>
+        <div class = "menu">
+            
+            <div class="opcionesmenu"><a href="#">Salir</a></div>
+            <div class="opcionesmenu"><a href="#">Preferencias y Ajustes</a></div>
+            <div class="opcionesmenu"><a href="https://www.educa2.madrid.org/web/centro.ies.piobaroja.madrid">Cuenta</a></div>
+       
+         
+        </div>
+
+
+		<div class="container">
+       
+                <div class="subcontainer1">
+                    <h1>TO DO</h1>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+                </div>
+                
+                <div class="subcontainer2">
+                    <h1>PROGRESS</h1>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>             
+               </div>	
+
+                <div class="subcontainer3">
+                    <h1>DONE</h1>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>                
+                </div>	
+
+                <div class="subcontainer4">
+                    <div id="buscador1">
+                        <form>
+                            <input type="search" id="buscador2" placeholder="buscar una tarea">
+                        </form>
+                    </div>
+
+                    <div class="linksinternos">
+                        <a href="#" id="link1"></a>
+                        <a href="#" id="link2"></a>
+                        <a href="#" id="link3"></a>
+                     </div>
+
+
+                    <div class="contenedorcalendario"><img src="Captura.PNG"/></div>
+              
+                </div>
+
+                
+           
+      
+			
+						
+		</div>		
+        <div class = "menu2">
+            <li>Dirección: False Street 123</li>
+            <li>Tel: 666123987</li>
+            <li>Políticas de privacidad y cookies</li>
+         <div class="redessociales">
+            <a href="#" id="linkedin"></a>
+            <a href="#" id="instagram"></a>
+            <a href="#" id="facebook"></a>
+         </div>
+
+         </div>
+        </div>
+	</body>
+</html>
