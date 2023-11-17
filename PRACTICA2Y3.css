@@ -1,5 +1,5 @@
 
-        .container { /* El contenedor externo tiene las coordenadas derecha y abajo en el padding */
+        .container { 
             border: 0.1rem solid black;
             margin-top: 1rem auto;
             margin-bottom: 1rem auto;
@@ -13,65 +13,59 @@
             display:flex;
         }
 
-   
+        div > h1{
+            text-align: center;
+        }
         
         h1, h1 + ul{
             color: white;
             line-height: 1.5;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
         }
 
+      
 
-        
-        .subcontainer1{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
+        div [class^="subcontainer"]
+        {
             width: 25%;
             border-left: 0;
             box-sizing: border-box;
             border: 1px solid black;
+            font-size:x-large;
+        }
+        
+        .subcontainer1{
             background-color:rgb(205, 119, 217);
             padding: 0.5em;
-            font-size:x-large;
         }
 
-        .subcontainer2{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-            width: 25%;
-            border-left: 0;
-            box-sizing: border-box;
-            border: 1px solid black;
+        .subcontainer2{ 
             background-color:rgb(138, 74, 218);
             padding: 0.5em;
-            font-size:x-large;
         }
 
-        .subcontainer3{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-            width: 25%;
-            box-sizing: border-box;
-            border: 1px solid black;
+        .subcontainer3{ 
             background-color:rgb(118, 154, 131);
             padding: 0.5em;
-            font-size:x-large;
         }
 
-        .subcontainer4{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-            width: 25%;
-            box-sizing: border-box;
-            border: 1px solid black;
+        .subcontainer4{ 
             background-color: rgb(239, 229, 240);
             color: rgb(55, 55, 55);
             display: flex;
             flex-direction: column;
-            align-items: center; /* Alinea los elementos en el centro horizontalmente */
-            padding: 4em;
+            align-items: center; 
+            padding: 1em;
+            position: relative;
+            /* justify-content: center; */
         }
         
-        h1{
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-align: center;
+        div [class^="subcontainer"] > ul > li:last-of-type{
+            font-style:italic;
         }
 
-        p{
-            margin: 0;
-        }	
+     
 
         .menu{
             background-color: rgb(60, 60, 60);
@@ -91,6 +85,10 @@
             padding:1em;
         }
 
+        .opcionesmenu:last-child
+        {
+            visibility: hidden;
+        }
             
         .menu a{
             padding-top: 1.75em;
@@ -159,10 +157,14 @@
             line-height: 1.5;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+
+    
    
         .contenedorcalendario
         { 
             margin-top: auto;
+            position: absolute;
+            bottom: 3rem;
         }  
 
         .contenedorcalendario img{
@@ -172,27 +174,35 @@
 
         .subcontainer4 #buscador1{
             height: 2em;
-            width: 90%;
+            width: 70%;
             margin-bottom: 1em;
-            position: relative;
+            /* position: relative; */
             float:left;
             display: flex;
             background-color: aqua;
+            
+            /* position:absolute; */
+            /* top:5rem; */
+            /* left: 7rem; */
+            
         }
 
         .subcontainer4 #buscador1 img{
-            width: 2em;
+            width: 1.5em;
+            height: 1.5em;
             margin-right: 0.5em;
+            /* margin: auto; */
+           
         }
 
         .subcontainer4 #buscador1 #buscador2
         {
             
             border-radius: 5px;
-            width: fit-content; 
+            /* width: fit-content;  */
             height: 100%;
             box-sizing: border-box; 
-            flex-grow: 1;  
+            flex-grow:1;  
         }
 
         .menu2 .redessociales
@@ -245,8 +255,8 @@
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            margin-bottom: auto; /* Añadido para espaciar los enlaces de la imagen del calendario */
-            margin-top: 3em;
+            position: absolute;
+            top: 11rem;
 
             
         }
@@ -258,16 +268,14 @@
             background-size: contain;
         }
 
+
         .container .subcontainer4 .linksinternos #link1
         {
             background-image: url("usuarios.png");
             background-repeat: no-repeat;
         }
 
-        .container .subcontainer4 .linksinternos #link1:hover
-        {
-            filter: drop-shadow( 0px 0px 15px black);
-        }
+     
 
         .container .subcontainer4 .linksinternos #link2
         {
@@ -275,10 +283,7 @@
             background-repeat: no-repeat;
         }
 
-        .container .subcontainer4 .linksinternos #link2:hover
-        {
-            filter: drop-shadow( 0px 0px 15px black);
-        }
+     
             
 
         .container .subcontainer4 .linksinternos #link3
@@ -287,10 +292,11 @@
             background-repeat: no-repeat;
         }
 
-        .container .subcontainer4 .linksinternos #link3:hover
+        .container .subcontainer4 .linksinternos [id^= "link"]:hover
         {
             filter: drop-shadow( 0px 0px 15px black);
         }
+      
         
         
         
