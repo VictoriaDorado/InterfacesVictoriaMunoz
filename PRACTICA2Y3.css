@@ -1,5 +1,59 @@
 
-        .container { 
+       /* MENÚ SUPERIOR */
+       /*  */
+       .menu{    /* Es sticky para que se mantenga siempre visible en la parte superior. */
+        background-color: rgb(60, 60, 60);
+        height: 6em;
+        margin-bottom: 2em;
+        position: sticky;
+        top:0px;
+        z-index: 1;    /* Para que se mantenga la capa por encima de las demás */
+        background-image: url('planeta.png');     /* El logo principal como imagen de fondo */
+        background-repeat: no-repeat;
+        background-size: 4em;
+        padding: 0.5em;
+        box-sizing: border-box;    /* Para que no desborde, cuenta el padding y border como parte de la medida total del contenedor. */
+        background-position: left center;
+        background-origin: content-box;     /* La imagen se posicione desde el contenido */
+        background-size: contain;
+        padding:1em;
+    }
+
+    .opcionesmenu:last-child     /* Una opción del menú que esté pero no se vea */
+    {
+        visibility: hidden;
+    }
+        
+
+    .menu:hover{ /* Cuando se posicione el ratón sobre el menú se cambia el logo */
+        background-image: url("meteorito.png"); 
+    }
+
+
+
+       .opcionesmenu a
+    {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 1.5em;         
+     
+        padding-right: 1.5em;
+        float: right;
+        text-decoration:none;   
+                     
+    }
+
+    .opcionesmenu a:link 
+    {
+        color: white;
+    }
+
+    .opcionesmenu a:visited 
+    {
+        color: rgb(205, 119, 217);
+    }
+
+
+       .container { /* Este es el contenedor principal. Esta diseñado con flex para poder distribuir los subcontenedores mas facilmente*/
             border: 0.1rem solid black;
             margin-top: 1rem auto;
             margin-bottom: 1rem auto;
@@ -67,57 +121,7 @@
 
      
 
-        .menu{
-            background-color: rgb(60, 60, 60);
-            height: 6em;
-            margin-bottom: 2em;
-            position: sticky;
-            top:0px;
-            z-index: 1;
-            background-image: url('planeta.png');
-            background-repeat: no-repeat;
-            background-size: 4em;
-            padding: 0.5em;
-            box-sizing: border-box;
-            background-position: left center;
-            background-origin: content-box;
-            background-size: contain;
-            padding:1em;
-        }
-
-        .opcionesmenu:last-child
-        {
-            visibility: hidden;
-        }
-            
-        .menu a{
-            padding-top: 1.75em;
-            padding-bottom: 1.75em;
-        }
-
-        .menu:hover{
-            background-image: url("meteorito.png"); 
-        }
-
-        .opcionesmenu a:link
-        {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: white;
-            padding-right: 1.5em;
-            float: right;
-            text-decoration:none;             
-        }
-
-        .opcionesmenu a:visited
-        {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin-top: 1.5em;         
-            color: rgb(205, 119, 217);
-            padding-right: 1.5em;
-            float: right;
-            text-decoration:none;          
-        }
-
+       
 
         .menu2{
             background-color: rgb(60, 60, 60);
@@ -176,21 +180,17 @@
             height: 2em;
             width: 70%;
             margin-bottom: 1em;
-            /* position: relative; */
             float:left;
             display: flex;
-            background-color: aqua;
-            
-            /* position:absolute; */
-            /* top:5rem; */
-            /* left: 7rem; */
-            
+            margin-top: 2em;
+   
         }
 
         .subcontainer4 #buscador1 img{
             width: 1.5em;
             height: 1.5em;
             margin-right: 0.5em;
+            align-self: center;
             /* margin: auto; */
            
         }
@@ -202,7 +202,12 @@
             /* width: fit-content;  */
             height: 100%;
             box-sizing: border-box; 
-            flex-grow:1;  
+            flex-grow:1; 
+            width: 100%; 
+        }
+        .subcontainer4 #buscador1 form
+        {
+            width: 100%;
         }
 
         .menu2 .redessociales
