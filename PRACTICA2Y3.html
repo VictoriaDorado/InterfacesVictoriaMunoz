@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Contenedor fluid</title>
+		<title>Práctica 2 diseño de interfaces web por Victoria Muñoz Dorado</title>
 		<link href="PRACTICA2Y3.css" rel="stylesheet" type ="text/css">
 	
           
@@ -11,87 +11,85 @@
 		
 	</head>
 	<body>
-        <div class = "menu">
-            
-            <div class="opcionesmenu"><a href="#">Salir</a></div>
-            <div class="opcionesmenu"><a href="#">Preferencias y Ajustes</a></div>
+        <div class = "menu"> <!-- Creamos un div para el menú superior y dentro de él tenemos otros div con las diferentes opciones del menú -->
+            <!-- He puesto enlaces diferentes a sitios aleatorios en las opciones del menú como ejemplo -->
+            <div class="opcionesmenu"><a href="https://www.youtube.com/">Salir</a></div>
+            <div class="opcionesmenu"><a href="https://www.google.com/maps">Preferencias y Ajustes</a></div>
             <div class="opcionesmenu"><a href="https://www.educa2.madrid.org/web/centro.ies.piobaroja.madrid">Cuenta</a></div>
-            <div class="opcionesmenu"><a href="#">oculto</a></div>
-         
+            <div class="opcionesmenu"><a href="#">oculto</a></div> <!-- Este elemento está oculto con visibility:hidden en el css -->
+         <!--  -->
         </div>
 
 
-		<div class="container">
+		<div class="container">  <!-- Contenedor que contiene todo el cuerpo de la web, todo el contenido -->
        
-                <div class="subcontainer1">
-                    <h1>TO DO</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                    </ul>
-                </div>
-                
-                <div class="subcontainer2">
-                    <h1>PROGRESS</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        
-                    </ul>             
-               </div>	
+            <div class="subcontainer1">  <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>TO DO</h1> 
+                <ul>  <!-- Usamos una lista para poner el contenido de la web, como hacen en la plantilla -->
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+            
+            <div class="subcontainer2"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>PROGRESS</h1>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    
+                </ul>             
+            </div>	
 
-                <div class="subcontainer3">
-                    <h1>DONE</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                    </ul>                
-                </div>	
+            <div class="subcontainer3"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>DONE</h1>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>                
+            </div>	
 
-                <div class="subcontainer4">
-                    <div id="buscador1">
-                        <img src="busqueda.png"></img>
-                        <form>
-                            <input type="search" id="buscador2" placeholder="buscar una tarea">
-                        </form>
-                    </div>
-
-                    <div class="linksinternos">
-                        <a href="#" id="link1"></a>
-                        <a href="#" id="link2"></a>
-                        <a href="#" id="link3"></a>
-                     </div>
-
-
-                    <div class="contenedorcalendario"><img src="Captura.PNG"/></div>
-              
+            <div class="subcontainer4"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <div id="buscador1">  <!-- Contenedor del buscador -->
+                    <img src="busqueda.png"></img>  <!-- imagen de la lupa -->
+                    <form>
+                        <input type="search" id="buscador2" placeholder="buscar una tarea">  <!-- el formulario con el input de búsqueda -->
+                    </form>
                 </div>
 
-                
-           
-      
-			
-						
+                <div class="linksinternos">  <!-- El contenedor que contiene los iconos del subcontenedor con enlaces -->
+                    <a href="#" id="link1"></a>
+                    <a href="#" id="link2"></a>
+                    <a href="#" id="link3"></a>
+                </div>
+
+
+                <div class="contenedorcalendario"><img src="Captura.PNG"/></div>  <!-- contenedor con la imagen del calendario -->
+            
+            </div>
+
+     		
 		</div>		
-        <div class = "menu2">
-        <ul>
+
+
+        <div class = "menu2"> <!-- contenedor con el menú inferior -->
+        <ul> <!-- lista con la información de contacto -->
             <li>Dirección: False Street 123</li>
             <li>Tel: 666123987</li>
             <li>Políticas de privacidad y cookies</li>
         </ul>
-         <div class="redessociales">
+         <div class="redessociales">  <!-- contenedor con los subcontenedores de los iconos de las redes sociales -->
             <a href="#" id="linkedin"></a>
             <a href="#" id="instagram"></a>
             <a href="#" id="facebook"></a>

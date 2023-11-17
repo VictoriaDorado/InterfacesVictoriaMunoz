@@ -1,7 +1,6 @@
 
-       /* MENÚ SUPERIOR */
-       /*  */
-       .menu{    /* Es sticky para que se mantenga siempre visible en la parte superior. */
+    /* MENÚ SUPERIOR */
+    .menu{    /* Es sticky para que se mantenga siempre visible en la parte superior. */
         background-color: rgb(60, 60, 60);
         height: 6em;
         margin-bottom: 2em;
@@ -30,14 +29,12 @@
     }
 
 
-
-       .opcionesmenu a
+    .opcionesmenu a        /* Estilo para los links del menú superior */
     {
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin-top: 1.5em;         
-     
         padding-right: 1.5em;
-        float: right;
+        float: right;        /* Para que se alineen a la derecha usamos la propiedad float */
         text-decoration:none;   
                      
     }
@@ -53,255 +50,224 @@
     }
 
 
-       .container { /* Este es el contenedor principal. Esta diseñado con flex para poder distribuir los subcontenedores mas facilmente*/
-            border: 0.1rem solid black;
-            margin-top: 1rem auto;
-            margin-bottom: 1rem auto;
-            width: 100%;
-            height:fit-content;
-            min-height: 40em;
-            position: center center;
-            position: relative;	
-            box-sizing: border-box;
-            font-size: 16px;
-            display:flex;
-        }
 
-        div > h1{
-            text-align: center;
-        }
+    /* CONTENEDOR PRINCIPAL DEL CONTENIDO DE LA WEB */
+    .container { /* Este es el contenedor principal. Esta diseñado con flex para poder distribuir los subcontenedores mas facilmente*/
+        border: 0.1rem solid black;
+        width: 100%;
+        height:fit-content;        /* Para que se adapte la altura del contenedor al contenido */
+        min-height: 40em;
+        position: relative;	
+        box-sizing: border-box;
+        font-size: 16px;
+        display:flex;
+    }
+
+
+
+    /* SUBCONTENEDORES */
+    div > h1{        /* Para centrar los títulos de cada subcontenedor */
+        text-align: center;
+    }
+    
+    h1, h1 + ul{       /* estilo aplicado a los h1 (hay que tener cuidado al aplicar estilos directamente sobre etiquetas, pero en este caso al ser una web tan sencilla no hay problema) y a los ul */
+        color: white;
+        line-height: 1.5;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         
-        h1, h1 + ul{
-            color: white;
-            line-height: 1.5;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            
-        }
+    }
 
-      
+    div [class^="subcontainer"]       /* Estilos comunes a todos los subcontenedores */
+    {
+        width: 25%;       /* dividimos el ancho de la pantala en 4 (25% de la pantalla, una por subcontenedor), usamos porcentajes para que sea mas adecuado */
+        border-left: 0;
+        box-sizing: border-box;       /* Usamos esta propiedad para que no desborde a causa de bordes y margenes */
+        border: 1px solid black;
+        font-size:x-large;
+    }
+    
+    div [class^="subcontainer"] > ul > li:last-of-type{        /* El último elemento "li" de cada subcontenedor nos saldrá con el estilo aplicado. No ponemos sólo "li:last-of-type" porque hay otras listas en el diseño a las que no queremos que se aplique*/
+        font-style:italic;
+    }
 
-        div [class^="subcontainer"]
-        {
-            width: 25%;
-            border-left: 0;
-            box-sizing: border-box;
-            border: 1px solid black;
-            font-size:x-large;
-        }
+    /* Estilos diferentes por cada subcontenedor */
+    .subcontainer1{
+        background-color:rgb(205, 119, 217);
+        padding: 0.5em;
+    }
+
+    .subcontainer2{ 
+        background-color:rgb(138, 74, 218);
+        padding: 0.5em;
+    }
+
+    .subcontainer3{ 
+        background-color:rgb(118, 154, 131);
+        padding: 0.5em;
+    }
+
+    .subcontainer4{ 
+        background-color: rgb(239, 229, 240);
+        color: rgb(55, 55, 55);
+        display: flex;  /* Utilizamos flex para distribuir los elementos que tiene dentro este subcontenedor */
+        flex-direction: column;
+        align-items: center; 
+        padding: 1em;
+        position: relative;       
+    }
+    
+
+    /* BUSCADOR */
+    .subcontainer4 #buscador1{ 
+    height: 2em;
+    width: 70%;     /* Le damos el ancho que queremos que tenga sobre el subcontenedor 4 */
+    margin-bottom: 1em;
+    display: flex;   /* También usamos display flex para distribuir los elementos que tiene dentro este contenedor */
+    margin-top: 2em;
+    }
+
+    .subcontainer4 #buscador1 img{     /* Estilos sonbre la imagen de la lupa */
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 0.5em;
+        align-self: center;          /* Usamos align-self para centrarlo con respecto al buscador, ya que el contenedor en el que se encuentra tiene la propiedad flex */
+    }
+
+    .subcontainer4 #buscador1 form
+    {
+        width: 100%;    /* IMPORTANTE!! Si no le damos el ancho del 100% al formulario no se aplica el tamaño sobre el id "buscador2" */
+    }
+
+    .subcontainer4 #buscador1 #buscador2
+    {
+        border-radius: 5px;  /* para el buscador con bordes redondeados */
+        height: 100%;
+        width: 100%; 
+    }
+  
+
+    /* ICONOS DEL SUBCONTENEDOR 4 */
+    .container .subcontainer4 .linksinternos  /* contenedor que contiene los iconos */
+    {
+        width: 100%; 
+        display:flex; /* usamos display flex para organizar los iconos, en fila, sin salto de línea y centrado. */
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        position: absolute; /* Usamos posicion absoluta para posicionar los iconos más centrados gracias al posicionamiento desde la parte de arriba con "top" */
+        top: 11rem;
+    }
+
+    .container .subcontainer4 .linksinternos > a {  /* Estilos sobre los iconos */
+        height: 2vw; 
+        width: 2vw;  /* Unidad de media con viewport */
+        margin: 1vw; 
+        background-size: contain;
+    }
+
+    /* Estilos sobre cada icono */
+    .container .subcontainer4 .linksinternos #link1
+    {
+        background-image: url("usuarios.png");
+        background-repeat: no-repeat;
+    }
+
+    .container .subcontainer4 .linksinternos #link2
+    {
+        background-image: url("grafico.png");
+        background-repeat: no-repeat;
+    }
+
+
+    .container .subcontainer4 .linksinternos #link3
+    {
+        background-image: url("basura.png");
+        background-repeat: no-repeat;
+    }
+
+    .container .subcontainer4 .linksinternos [id^= "link"]:hover /* Se aplica a todos los iconos cuando se ponga el ratón sobre ellos */
+    {
+        filter: drop-shadow( 0px 0px 15px black);  /* aplicamos una sombra (parecido a box-shadow, se utiliza para aplicar una sombra con desenfoque a un elemento.) */
+    }
+    
+
+    /* CALENDARIO */
+    .contenedorcalendario /* Este es el contenedor sobre el que pondremos la imagen del calendario, la cual está definida como imagen de fondo */
+    { 
+        margin-top: auto;
+        position: absolute;
+        bottom: 3rem;
+    }  
+
+    .contenedorcalendario img{  /* queremos que la imagen ocupe el 100% del contenedor */
+        width: 100%;
+        height: 100%;
+    }
+
+    /* MENÚ INFERIOR */
+    .menu2{     /* Propiedades de todo en menú inferior */
+        background-color: rgb(60, 60, 60);
+        height: 8em;
+        margin-top: 2em;
+        width: 100%;
+        background-image: url('planeta.PNG');     /* Ponemos el logo como imagen de fondo */
+        background-repeat: no-repeat;
+        padding: 1.5em;
+        box-sizing: border-box;    /* Usamos border-box para que no cuenten el padding en las medidas que aliquemos en el contenedor */
+        background-origin: content-box;    
+        background-size: contain;
+        display: flex;     /* Usamos display flex para distribuir los elementos en el menú */
+        flex-direction: row;
+        justify-content: space-between;     /* Para que estén cada uno en un extremo del menú, al solo haber 2. */
+        align-items: center;
+    }
+
+
+    .menu2 li{     /* Estilos aplicados sobre la lista dentro del menú inferior */
+        color: white;
+        padding-left: 8rem;
+        list-style: none;
+        line-height: 1.5;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    .menu2 .redessociales    /* Estilos aplicados sobre los iconos de redes sociales del menú inferior */
+    {
+        display:flex;     /* Volvemos a usar display flex para distribuir los demás elementos dentro de este contenedor, el este caso los iconos de las redes sociales */
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+    }
+
+    .menu2 .redessociales a    /* Estilos comunes de todos los enlaces (de los iconos) */
+    {
+        background-repeat: no-repeat;
+        height: 2em;
+        width: 2em;
+        background-size: contain; 
+        margin:0.3em;
+    }
+
+    /* cada una de las imagenes de los logos como imagen de fondo */
+    .menu2 .redessociales #facebook
+    {
+        background-image: url("facebook.png");
+    }
+
+
+
+    .menu2 .redessociales #instagram
+    {
+        background-image: url("instagram.png");
+    }
+
+
+    .menu2 .redessociales #linkedin
+    {
+        background-image: url("linkedin.png");
+    }
         
-        .subcontainer1{
-            background-color:rgb(205, 119, 217);
-            padding: 0.5em;
-        }
-
-        .subcontainer2{ 
-            background-color:rgb(138, 74, 218);
-            padding: 0.5em;
-        }
-
-        .subcontainer3{ 
-            background-color:rgb(118, 154, 131);
-            padding: 0.5em;
-        }
-
-        .subcontainer4{ 
-            background-color: rgb(239, 229, 240);
-            color: rgb(55, 55, 55);
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            padding: 1em;
-            position: relative;
-            /* justify-content: center; */
-        }
-        
-        div [class^="subcontainer"] > ul > li:last-of-type{
-            font-style:italic;
-        }
-
-     
-
-       
-
-        .menu2{
-            background-color: rgb(60, 60, 60);
-            height: 8em;
-            margin-top: 2em;
-            width: 100%;
-            background-image: url('planeta.PNG');
-            background-repeat: no-repeat;
-            background-size: 10%;
-            padding: 1.5em;
-            box-sizing: border-box;
-            background-origin: content-box;
-            background-size: contain;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-     
-        }
-   
-        .menu2 ul{
-
-            color: white;
-            flex-direction: column;
-            justify-content: center;
-            width: 35em;
-            padding-left: 1rem;
-            list-style: none;
-            line-height: 1.5;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-
-        .menu2 li{
-            padding-left: 8rem;
-            list-style: none;
-            line-height: 1.5;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
 
     
-   
-        .contenedorcalendario
-        { 
-            margin-top: auto;
-            position: absolute;
-            bottom: 3rem;
-        }  
 
-        .contenedorcalendario img{
-            width: 100%;
-            height: 100%;
-        }
-
-        .subcontainer4 #buscador1{
-            height: 2em;
-            width: 70%;
-            margin-bottom: 1em;
-            float:left;
-            display: flex;
-            margin-top: 2em;
-   
-        }
-
-        .subcontainer4 #buscador1 img{
-            width: 1.5em;
-            height: 1.5em;
-            margin-right: 0.5em;
-            align-self: center;
-            /* margin: auto; */
-           
-        }
-
-        .subcontainer4 #buscador1 #buscador2
-        {
-            
-            border-radius: 5px;
-            /* width: fit-content;  */
-            height: 100%;
-            box-sizing: border-box; 
-            flex-grow:1; 
-            width: 100%; 
-        }
-        .subcontainer4 #buscador1 form
-        {
-            width: 100%;
-        }
-
-        .menu2 .redessociales
-        {
-            display:flex;
-            flex-direction: row-reverse;
-            flex-wrap: nowrap;
-        }
-
-
-        .menu2 .redessociales #facebook
-        {
-            background-image: url("facebook.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-
-
-
-        .menu2 .redessociales #instagram
-        {
-            background-image: url("instagram.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-
-
-        .menu2 .redessociales #linkedin
-        {
-            background-image: url("linkedin.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-            
-
-        .container .subcontainer4 .linksinternos
-        {
-            width: 100%; 
-            display:flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 11rem;
-
-            
-        }
-
-        .container .subcontainer4 .linksinternos > a {
-            height: 2vw; 
-            width: 2vw; 
-            margin: 1vw; 
-            background-size: contain;
-        }
-
-
-        .container .subcontainer4 .linksinternos #link1
-        {
-            background-image: url("usuarios.png");
-            background-repeat: no-repeat;
-        }
-
-     
-
-        .container .subcontainer4 .linksinternos #link2
-        {
-            background-image: url("grafico.png");
-            background-repeat: no-repeat;
-        }
-
-     
-            
-
-        .container .subcontainer4 .linksinternos #link3
-        {
-            background-image: url("basura.png");
-            background-repeat: no-repeat;
-        }
-
-        .container .subcontainer4 .linksinternos [id^= "link"]:hover
-        {
-            filter: drop-shadow( 0px 0px 15px black);
-        }
-      
-        
-        
-        
+    
