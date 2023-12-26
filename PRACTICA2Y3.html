@@ -3,503 +3,129 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Contenedor fluid</title>
-		
-		<style type="text/css">
-			.container { /* El contenedor externo tiene las coordenadas derecha y abajo en el padding */
-				border: 0.1rem solid black;
-				margin-top: 1rem auto;
-                margin-bottom: 1rem auto;
-				width: 100%;
-                /* height: 40em; */
-                height:fit-content;
-                min-height: 40em;
-
-
-                /* height: 500px; */
-
-				position: center center;
-                position: relative;	
-
-				box-sizing: border-box;
-				/* overflow: auto; */
-				
-				font-size: 16px;
-                display:flex;
-				
-				
-			}
-			
-			.subcontainer1{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-				width: 25%;
-                /* min-width: 10em; */
-			    border-left: 0;
-				/* float: left;		 */
-				box-sizing: border-box;
-				border: 1px solid black;
-                /* height: 100%; */
-               
-                background-color:rgb(205, 119, 217);
-                color: white;
-                padding: 0.5em;
-                font-size:x-large;
-                line-height: 1.5;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-			}
-
-            .subcontainer2{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-				width: 25%;
-			    border-left: 0;
-				/* float: left;		 */
-				box-sizing: border-box;
-				border: 1px solid black;
-                /* height: 100%; */
-                background-color:rgb(138, 74, 218);
-                color: white;
-                padding: 0.5em;
-                font-size:x-large;
-                line-height: 1.5;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-                /* min-width: 10em; */
-			}
-
-            .subcontainer3{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-				width: 25%;
-			    /* border-left: 0; */
-				/* float: left;		 */
-				box-sizing: border-box;
-				border: 1px solid black;
-                /* height: 100%; */
-                background-color:rgb(118, 154, 131);
-                color: white;
-                padding: 0.5em;
-                font-size:x-large;
-                line-height: 1.5;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-                /* min-width: 10em; */
-			}
-
-            .subcontainer4{ /* El contenedor interno tiene las coordenadas de arriba e izquierda y así cuadra el espaciado sin necesidad de modificar nada y sin descuadres */
-				/* width: 25%;
-			
-				box-sizing: border-box;
-				border: 1px solid black;
-             
-              
-                
-                background-color:rgb(239, 229, 240);
-                color: rgb(55, 55, 55);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            
-                padding: 2em;
-            */
-
-
-
-
-
-
-
-
-
-                width: 25%;
-    box-sizing: border-box;
-    border: 1px solid black;
-    background-color: rgb(239, 229, 240);
-    color: rgb(55, 55, 55);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Alinea los elementos en el centro horizontalmente */
-    /* justify-content: center; Comentado para que no afecte el espacio entre la barra de búsqueda y los enlaces */
-    /* ************************************ */
-    padding: 4em;
-    /* ************************************ */
-
-
-			}
-			
-            h1{
-                /* font-size:99%; */
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                text-align: center;
-                
-            }
-
-			p{
-				margin: 0;
-			}	
-
-          .menu{
-            background-color: rgb(60, 60, 60);
-            height: 6em;
-            margin-bottom: 2em;
-            position: sticky;
-            top:0px;
-            z-index: 1;
-            background-image: url('planeta.png');
-            background-repeat: no-repeat;
-            background-size: 4em;
-            padding: 0.5em;
-            box-sizing: border-box;
-            background-position: left center;
-            background-origin: content-box;
-            background-size: contain;
-            padding:1em;
-            /* display: flex;
-            justify-content: center; */
-           
-          
-            
-           
-            
-          }
-.menu a{
-    padding-top: 1.75em;
-    padding-bottom: 1.75em;
- 
-}
-
-.menu:hover{
-    background-image: url("meteorito.png"); 
-}
-
-
-
-
-          .opcionesmenu a:link
-          {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            /* margin-top: 1.5em;          */
-            color: white;
-            padding-right: 1.5em;
-            float: right;
-            text-decoration:none;
-                     
-          }
-
-          .opcionesmenu a:visited
-          {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin-top: 1.5em;         
-            color: rgb(205, 119, 217);
-            padding-right: 1.5em;
-            float: right;
-            text-decoration:none;
-                     
-          }
-
-
-          .menu2{
-            background-color: rgb(60, 60, 60);
-            height: 8em;
-            margin-top: 2em;
-            /* bottom:0px; */
-            
-            width: 100%;
-
-            color: white;
-       
-            background-image: url('planeta.PNG');
-            background-repeat: no-repeat;
-            background-size: 10%;
-            padding: 1.5em;
-            box-sizing: border-box;
-            background-position: left center;
-            background-origin: content-box;
-            background-size: contain;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            
-          }
-/* 
-          .menu2:hover{
-            box-shadow: 10px 10px 10px pink;
-          } */
-
-          .menu2 li{
-            padding-left: 8rem;
-            list-style: none;
-            line-height: 1.5;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          }
-
-
-          /* .subcontainer4 img{
-            position: relative;
-            
-          }
-
-          .logosuperior
-          {
-
-          } */
-            
-          .contenedorcalendario
-          { 
-            /* padding: 1em; */
-          
-            /* position: absolute;
-            bottom: 0;
-            
-            /* background-image: url('Captura.PNG'); */
-            /* min-width: 5em; */
-            margin-top: auto;
-           }  
-
-          .contenedorcalendario img{
-            width: 100%;
-            height: 100%;
-            /* min-width: 50px; */
-
-
-          }
-
-          .subcontainer4 #buscador1{
-   
-            height: 2em;
-            width: 90%;
-            /* background-color: aqua; */
-            margin-bottom: 1em;
-            position: relative;
-            float:left;
-            display: flex;
-
-          }
-
-          .subcontainer4 #buscador1 img{
-            width: 2em;
-            /* height: 2em; */
-            margin-right: 0.5em;
-           
-          }
-
-        .subcontainer4 #buscador1 #buscador2
-        {
-          
-            border-radius: 5px;
-            width: 100%; 
-            height: 100%;
-            box-sizing: border-box;
-
-         
-            
-        }
-
-        .menu2 .redessociales
-        {
-            display:flex;
-            flex-direction: row-reverse;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-items: flex-end;
-            
-
-
-       
-          
-       
-            /* height: 20em;
-            width: 20em; */
-            
-        }
-
-
-        .menu2 .redessociales #facebook
-        {
-            background-image: url("facebook.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-
-
-
-        .menu2 .redessociales #instagram
-        {
-            background-image: url("instagram.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-
-        .menu2 .redessociales #linkedin
-        {
-            background-image: url("linkedin.png");
-            background-repeat: no-repeat;
-            height: 2em;
-            width: 2em;
-            background-size: contain; 
-            margin:0.3em;
-        }
-            
-
-        .container .subcontainer4 .linksinternos
-        {
-            /* height: 3em;  */
-            width: 100%; 
-            /* background-color: rgb(255, 0, 204); */
-            display:flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            /* align-content: center; */
-
-    margin-bottom: auto; /* Añadido para espaciar los enlaces de la imagen del calendario */
-
-            
-        }
-
-        .container .subcontainer4 .linksinternos a {
-            /* display: block;
-            height: 100%; */
-            /* width: 3em; */
-            /* margin: 0.3em;
-            /* background-size: contain; */
-
-         height: 2vw; /* Ajusta según tus preferencias */
-         width: 2vw; /* Ajusta según tus preferencias */
-         margin: 1vw; /* Ajusta según tus preferencias */
-         background-size: contain;
-          
-   
-  
-        }
-
-        .container .subcontainer4 .linksinternos #link1
-        {
-            background-image: url("usuarios.png");
-            background-repeat: no-repeat;
-        
-        }
-        .container .subcontainer4 .linksinternos #link1:hover
-        {
-           /* border: 1px  dotted red; */
-           box-shadow: 0px 0px 15px black;
-        
-        }
-
-        .container .subcontainer4 .linksinternos #link2
-        {
-            background-image: url("grafico.png");
-            background-repeat: no-repeat;
-       
-        }
-
-        .container .subcontainer4 .linksinternos #link2:hover
-        {
-            box-shadow: 0px 0px 15px black;
-       
-        }
+		<title>Práctica 2 diseño de interfaces web por Victoria Muñoz Dorado</title>
+		<link href="PRACTICA2Y3.css" rel="stylesheet" type ="text/css">
+	
           
 
-        .container .subcontainer4 .linksinternos #link3
-        {
-            background-image: url("basura.png");
-            background-repeat: no-repeat;
-        
-        }
-
-        .container .subcontainer4 .linksinternos #link3:hover
-        {
-            box-shadow: 0px 0px 15px black;
-        }
-          
-          
-          
-            
-		</style>
 		
 	</head>
 	<body>
-        <div class = "menu">
-            
-            <div class="opcionesmenu"><a href="#">Salir</a></div>
-            <div class="opcionesmenu"><a href="#">Preferencias y Ajustes</a></div>
+        <div class = "menu"> <!-- Creamos un div para el menú superior y dentro de él tenemos otros div con las diferentes opciones del menú -->
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                  <a href="#about">About</a>
+                  <a href="#base">Base</a>
+                  <a href="#blog">Blog</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#custom">Custom</a>
+                  <a href="#support">Support</a>
+                  <a href="#tools">Tools</a>
+                </div>
+              </div>
+              
+              <script>
+              /* When the user clicks on the button,
+              toggle between hiding and showing the dropdown content */
+              function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+              
+              function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                  txtValue = a[i].textContent || a[i].innerText;
+                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                  } else {
+                    a[i].style.display = "none";
+                  }
+                }
+              }
+              </script>
+            <!-- <div class="opcionesmenu"><a href="https://www.youtube.com/">Salir</a></div>
+            <div class="opcionesmenu"><a href="https://www.google.com/maps">Preferencias y Ajustes</a></div>
             <div class="opcionesmenu"><a href="https://www.educa2.madrid.org/web/centro.ies.piobaroja.madrid">Cuenta</a></div>
-       
-         
+            <div class="opcionesmenu"><a href="#">oculto</a></div> Este elemento está oculto con visibility:hidden en el css -->
+         <!--  -->
         </div>
 
 
-		<div class="container">
+		<div class="container">  <!-- Contenedor que contiene todo el cuerpo de la web, todo el contenido -->
        
-                <div class="subcontainer1">
-                    <h1>TO DO</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                    </ul>
-                </div>
-                
-                <div class="subcontainer2">
-                    <h1>PROGRESS</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                    </ul>             
-               </div>	
+            <div class="subcontainer1">  <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>TO DO</h1> 
+                <ul>  <!-- Usamos una lista para poner el contenido de la web, como hacen en la plantilla -->
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+            
+            <div class="subcontainer2"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>PROGRESS</h1>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    
+                </ul>             
+            </div>	
 
-                <div class="subcontainer3">
-                    <h1>DONE</h1>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet</li>
-                        <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
-                        <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                    </ul>                
-                </div>	
+            <div class="subcontainer3"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <h1>DONE</h1>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
+                    <li>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>                
+            </div>	
 
-                <div class="subcontainer4">
-                    <div id="buscador1">
-                        <img src="busqueda.png"></img>
-                        <form>
-                            <input type="search" id="buscador2" placeholder="buscar una tarea">
-                        </form>
-                    </div>
-
-                    <div class="linksinternos">
-                        <a href="#" id="link1"></a>
-                        <a href="#" id="link2"></a>
-                        <a href="#" id="link3"></a>
-                     </div>
-
-
-                    <div class="contenedorcalendario"><img src="Captura.PNG"/></div>
-              
+            <div class="subcontainer4"> <!-- Subcontenedor que ocupa el 25% del ancho -->
+                <div id="buscador1">  <!-- Contenedor del buscador -->
+                    <img src="busqueda.png"></img>  <!-- imagen de la lupa -->
+                    <form>
+                        <input type="search" id="buscador2" placeholder="buscar una tarea">  <!-- el formulario con el input de búsqueda -->
+                    </form>
                 </div>
 
-                
-           
-      
-			
-						
+                <div class="linksinternos">  <!-- El contenedor que contiene los iconos del subcontenedor con enlaces -->
+                    <a href="#" id="link1"></a>
+                    <a href="#" id="link2"></a>
+                    <a href="#" id="link3"></a>
+                </div>
+
+
+                <div class="contenedorcalendario"><img src="Captura.PNG"/></div>  <!-- contenedor con la imagen del calendario -->
+            
+            </div>
+
+     		
 		</div>		
-        <div class = "menu2">
+
+
+        <div class = "menu2"> <!-- contenedor con el menú inferior -->
+        <ul> <!-- lista con la información de contacto -->
             <li>Dirección: False Street 123</li>
             <li>Tel: 666123987</li>
             <li>Políticas de privacidad y cookies</li>
-         <div class="redessociales">
+        </ul>
+         <div class="redessociales">  <!-- contenedor con los subcontenedores de los iconos de las redes sociales -->
             <a href="#" id="linkedin"></a>
             <a href="#" id="instagram"></a>
             <a href="#" id="facebook"></a>
