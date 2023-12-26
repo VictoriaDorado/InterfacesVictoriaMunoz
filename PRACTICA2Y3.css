@@ -1,53 +1,33 @@
+/* MENÚ SUPERIOR */
+.menu {
+    background-color: rgb(60, 60, 60);
+    height: 6em;
+    margin-bottom: 2em;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    background-image: url('planeta.png');
+    background-repeat: no-repeat;
+    background-size: 4em;
+    padding: 0.5em;
+    box-sizing: border-box;
+    background-position: left center;
+    background-origin: content-box;
+    background-size: contain;
+    padding: 1em;
+    display: grid; /* Cambiamos flex a grid */
+    grid-template-columns: auto 1fr; /* Dos columnas, la primera del tamaño automático y la segunda que ocupa el resto del espacio */
+    align-items: center; /* Centrar verticalmente los elementos */
+    min-width: 200px;
+}
 
-    /* MENÚ SUPERIOR */
-    .menu{    /* Es sticky para que se mantenga siempre visible en la parte superior. */
-        background-color: rgb(60, 60, 60);
-        height: 6em;
-        margin-bottom: 2em;
-        position: sticky;
-        top:0px;
-        z-index: 1;    /* Para que se mantenga la capa por encima de las demás */
-        background-image: url('planeta.png');     /* El logo principal como imagen de fondo */
-        background-repeat: no-repeat;
-        background-size: 4em;
-        padding: 0.5em;
-        box-sizing: border-box;    /* Para que no desborde, cuenta el padding y border como parte de la medida total del contenedor. */
-        background-position: left center;
-        background-origin: content-box;     /* La imagen se posicione desde el contenido */
-        background-size: contain;
-        padding:1em;
-    }
+/* .opcionesmenu:last-child {
+    visibility: hidden;
+} */
 
-    .opcionesmenu:last-child     /* Una opción del menú que esté pero no se vea */
-    {
-        visibility: hidden;
-    }
-        
-
-    .menu:hover{ /* Cuando se posicione el ratón sobre el menú se cambia el logo */
-        background-image: url("meteorito.png"); 
-    }
-
-
-    .opcionesmenu a        /* Estilo para los links del menú superior */
-    {
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        margin-top: 1.5em;         
-        padding-right: 1.5em;
-        float: right;        /* Para que se alineen a la derecha usamos la propiedad float */
-        text-decoration:none;   
-                     
-    }
-
-    .opcionesmenu a:link 
-    {
-        color: white;
-    }
-
-    .opcionesmenu a:visited 
-    {
-        color: rgb(205, 119, 217);
-    }
+.menu:hover {
+    background-image: url("meteorito.png");
+}
 
 
 
@@ -57,240 +37,264 @@
 
 
 
-
-
-
-
-
-
-    .dropbtn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-      }
-      
-      .dropbtn:hover, .dropbtn:focus {
-        background-color: #3e8e41;
-      }
-      
-      #myInput {
-        box-sizing: border-box;
-        background-image: url('searchicon.png');
-        background-position: 14px 12px;
-        background-repeat: no-repeat;
-        font-size: 16px;
-        padding: 14px 20px 12px 45px;
-        border: none;
-        border-bottom: 1px solid #ddd;
-      }
-      
-      #myInput:focus {outline: 3px solid #ddd;}
-      
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f6f6f6;
-        min-width: 230px;
-        overflow: auto;
-        border: 1px solid #ddd;
-        z-index: 1;
-      }
-      
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-      
-      .dropdown a:hover {background-color: #ddd;}
-      
-      .show {display: block;}
-
-    /* CONTENEDOR PRINCIPAL DEL CONTENIDO DE LA WEB */
-    .container { /* Este es el contenedor principal. Esta diseñado con flex para poder distribuir los subcontenedores mas facilmente*/
-        border: 0.1rem solid black;
-        width: 100%;
-        height:fit-content;        /* Para que se adapte la altura del contenedor al contenido */
-        min-height: 40em;
-        position: relative;	
-        box-sizing: border-box;
-        font-size: 16px;
-        display:flex;
-    }
-
-
-
-    /* SUBCONTENEDORES */
-    div > h1{        /* Para centrar los títulos de cada subcontenedor */
-        text-align: center;
-    }
+/* Desplegable con opciones de prueba */
+.dropbtn {
+    background-color: #ecaaec;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #eecdee;
+  }
+  
+  #myInput {
+    box-sizing: border-box;
+    background-image: url('busqueda.png');
+    background-position: 14px 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #myInput:focus {outline: 3px solid #ddd;}
+  
+  .dropdown {
+    /* position: relative; */
+    /* float: right; */
+    grid-column: 2; /* Colocamos el desplegable en la segunda columna del grid */
+    text-align: right;
     
-    h1, h1 + ul{       /* estilo aplicado a los h1 (hay que tener cuidado al aplicar estilos directamente sobre etiquetas, pero en este caso al ser una web tan sencilla no hay problema) y a los ul */
-        color: white;
-        line-height: 1.5;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        
-    }
+    /* display: inline-block; */
+  }
+  
+  .dropdown-content {
+    display: none;
+    /* position: relative; */
+    float: left;/*////////////////////////////////////////////////////////////////////////////////////*/
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
 
-    div [class^="subcontainer"]       /* Estilos comunes a todos los subcontenedores */
-    {
-        width: 25%;       /* dividimos el ancho de la pantala en 4 (25% de la pantalla, una por subcontenedor), usamos porcentajes para que sea mas adecuado */
-        border-left: 0;
-        box-sizing: border-box;       /* Usamos esta propiedad para que no desborde a causa de bordes y margenes */
-        border: 1px solid black;
-        font-size:x-large;
-    }
+    grid-column: 2; /* Colocamos el desplegable en la segunda columna del grid */
+    text-align: right;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTENEDOR PRINCIPAL DEL CONTENIDO DE LA WEB */
+.container {
+    border: 0.1rem solid black;
+    width: 100%;
+    height: fit-content;
+    min-height: 40em;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* gap: 1em; */
+    min-width: 200px;
+}
+
+
+
+
+
+
+/* SUBCONTENEDORES */
+div>h1 {
+    text-align: center;
+}
+
+h1,
+h1+ul {
+    color: white;
+    line-height: 1.5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.subcontainer {
+    width: 100%; /* Modificado para que ocupe todo el ancho del contenedor principal */
+    border-left: 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    font-size: x-large;
     
-    div [class^="subcontainer"] > ul > li:last-of-type{        /* El último elemento "li" de cada subcontenedor nos saldrá con el estilo aplicado. No ponemos sólo "li:last-of-type" porque hay otras listas en el diseño a las que no queremos que se aplique*/
-        font-style:italic;
-    }
+}
 
-    /* Estilos diferentes por cada subcontenedor */
-    .subcontainer1{
-        background-color:rgb(205, 119, 217);
-        padding: 0.5em;
-    }
+div [class^="subcontainer"]>ul>li:last-of-type {
+    font-style: italic;
+}
 
-    .subcontainer2{ 
-        background-color:rgb(138, 74, 218);
-        padding: 0.5em;
-    }
+/* Estilos diferentes por cada subcontenedor */
+.subcontainer1 {
+    background-color: rgb(205, 119, 217);
+    padding: 0.5em;
+}
 
-    .subcontainer3{ 
-        background-color:rgb(118, 154, 131);
-        padding: 0.5em;
-    }
+.subcontainer2 {
+    background-color: rgb(138, 74, 218);
+    padding: 0.5em;
+}
 
-    .subcontainer4{ 
-        background-color: rgb(239, 229, 240);
-        color: rgb(55, 55, 55);
-        display: flex;  /* Utilizamos flex para distribuir los elementos que tiene dentro este subcontenedor */
-        flex-direction: column;
-        align-items: center; 
-        padding: 1em;
-        position: relative;       
-    }
+.subcontainer3 {
+    background-color: rgb(118, 154, 131);
+    padding: 0.5em;
+}
+
+.subcontainer4 {
+    background-color: rgb(239, 229, 240);
+    color: rgb(55, 55, 55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
+    padding: 1em;
+    position: relative;
+    height: fit-content;
+}
 
-    /* BUSCADOR */
-    .subcontainer4 #buscador1{ 
+/* BUSCADOR */
+.subcontainer4 #buscador1 {
     height: 2em;
-    width: 70%;     /* Le damos el ancho que queremos que tenga sobre el subcontenedor 4 */
+    width: 100%; /* Cambiado al 100% para ocupar todo el ancho del subcontenedor 4 */
     margin-bottom: 1em;
-    display: flex;   /* También usamos display flex para distribuir los elementos que tiene dentro este contenedor */
+    display: flex;
     margin-top: 2em;
-    }
+}
 
-    .subcontainer4 #buscador1 img{     /* Estilos sonbre la imagen de la lupa */
-        width: 1.5em;
-        height: 1.5em;
-        margin-right: 0.5em;
-        align-self: center;          /* Usamos align-self para centrarlo con respecto al buscador, ya que el contenedor en el que se encuentra tiene la propiedad flex */
-    }
+.subcontainer4 #buscador1 img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+    align-self: center;
+}
 
-    .subcontainer4 #buscador1 form
-    {
-        width: 100%;    /* IMPORTANTE!! Si no le damos el ancho del 100% al formulario no se aplica el tamaño sobre el id "buscador2" */
-    }
+.subcontainer4 #buscador1 form {
+    width: 100%;
+}
 
-    .subcontainer4 #buscador1 #buscador2
-    {
-        border-radius: 5px;  /* para el buscador con bordes redondeados */
-        height: 100%;
-        width: 100%; 
-    }
+.subcontainer4 #buscador1 #buscador2 {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+/* ICONOS DEL SUBCONTENEDOR 4 */
+.container .subcontainer4 .linksinternos {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container .subcontainer4 .linksinternos>a {
+    height: 4vw;
+    width: 4vw;
+    margin: 4vw;
+
+    background-size: contain;
+}
+
+/* Estilos sobre cada icono */
+.container .subcontainer4 .linksinternos #link1 {
+    background-image: url("usuarios.png");
+    background-repeat: no-repeat;
+}
+
+.container .subcontainer4 .linksinternos #link2 {
+    background-image: url("grafico.png");
+    background-repeat: no-repeat;
+}
+
+.container .subcontainer4 .linksinternos #link3 {
+    background-image: url("basura.png");
+    background-repeat: no-repeat;
+}
+
+.container .subcontainer4 .linksinternos [id^="link"]:hover {
+    filter: drop-shadow(0px 0px 15px black);
+}
+
+/* CALENDARIO */
+.contenedorcalendario {
+    margin-top: auto; 
+    position: relative;
+    top: 100%; /* Posicionamos el calendario debajo de los links internos */
+    text-align: center;
+    padding: 1em;
+    padding-bottom: 2em;
+    box-sizing: border-box;
+
+    
+}
+
+.contenedorcalendario img {
+    width: 100%;
+    height: 100%; /* Ajustamos la altura a fit-content */
+}
+
+
+/* MENÚ INFERIOR */
+.menu2 {
+    background-color: rgb(60, 60, 60);
+    height: 8em;
+    margin-top: 2em;
+    width: 100%;
+    /* background-image: url('planeta.PNG');                                                SOLO SALGA EN DISPOSITIVOS GRANDES*/        
+    background-repeat: no-repeat;
+    padding: 1.5em;
+    box-sizing: border-box;
+    background-origin: content-box;
+    background-size: contain;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+
   
 
-    /* ICONOS DEL SUBCONTENEDOR 4 */
-    .container .subcontainer4 .linksinternos  /* contenedor que contiene los iconos */
-    {
-        width: 100%; 
-        display:flex; /* usamos display flex para organizar los iconos, en fila, sin salto de línea y centrado. */
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        position: absolute; /* Usamos posicion absoluta para posicionar los iconos más centrados gracias al posicionamiento desde la parte de arriba con "top" */
-        top: 11rem;
-    }
-
-    .container .subcontainer4 .linksinternos > a {  /* Estilos sobre los iconos */
-        height: 2vw; 
-        width: 2vw;  /* Unidad de media con viewport */
-        margin: 1vw; 
-        background-size: contain;
-    }
-
-    /* Estilos sobre cada icono */
-    .container .subcontainer4 .linksinternos #link1
-    {
-        background-image: url("usuarios.png");
-        background-repeat: no-repeat;
-    }
-
-    .container .subcontainer4 .linksinternos #link2
-    {
-        background-image: url("grafico.png");
-        background-repeat: no-repeat;
-    }
-
-
-    .container .subcontainer4 .linksinternos #link3
-    {
-        background-image: url("basura.png");
-        background-repeat: no-repeat;
-    }
-
-    .container .subcontainer4 .linksinternos [id^= "link"]:hover /* Se aplica a todos los iconos cuando se ponga el ratón sobre ellos */
-    {
-        filter: drop-shadow( 0px 0px 15px black);  /* aplicamos una sombra (parecido a box-shadow, se utiliza para aplicar una sombra con desenfoque a un elemento.) */
-    }
-    
-
-    /* CALENDARIO */
-    .contenedorcalendario /* Este es el contenedor sobre el que pondremos la imagen del calendario, la cual está definida como imagen de fondo */
-    { 
-        margin-top: auto;
-        position: absolute;
-        bottom: 3rem;
-    }  
-
-    .contenedorcalendario img{  /* queremos que la imagen ocupe el 100% del contenedor */
-        width: 100%;
-        height: 100%;
-    }
-
-    /* MENÚ INFERIOR */
-    .menu2{     /* Propiedades de todo en menú inferior */
-        background-color: rgb(60, 60, 60);
-        height: 8em;
-        margin-top: 2em;
-        width: 100%;
-        background-image: url('planeta.PNG');     /* Ponemos el logo como imagen de fondo */
-        background-repeat: no-repeat;
-        padding: 1.5em;
-        box-sizing: border-box;    /* Usamos border-box para que no cuenten el padding en las medidas que aliquemos en el contenedor */
-        background-origin: content-box;    
-        background-size: contain;
-        display: flex;     /* Usamos display flex para distribuir los elementos en el menú */
-        flex-direction: row;
-        justify-content: space-between;     /* Para que estén cada uno en un extremo del menú, al solo haber 2. */
-        align-items: center;
-    }
 
 
     .menu2 li{     /* Estilos aplicados sobre la lista dentro del menú inferior */
         color: white;
-        padding-left: 8rem;
+        /* padding-left: 8rem; */
         list-style: none;
         line-height: 1.5;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -301,6 +305,10 @@
         display:flex;     /* Volvemos a usar display flex para distribuir los demás elementos dentro de este contenedor, el este caso los iconos de las redes sociales */
         flex-direction: row-reverse;
         flex-wrap: nowrap;
+        justify-content: center; /* Centra horizontalmente los iconos */
+        align-items: center;
+        width: 100%;
+        margin-top: 1em;
     }
 
     .menu2 .redessociales a    /* Estilos comunes de todos los enlaces (de los iconos) */
@@ -330,7 +338,12 @@
     {
         background-image: url("linkedin.png");
     }
-        
+    
+    .menu2 .direcciones{
+
+        width: 100%;
+
+    }
 
     
 
