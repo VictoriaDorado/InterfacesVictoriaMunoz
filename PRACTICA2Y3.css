@@ -1,4 +1,8 @@
 /* MENÚ SUPERIOR */
+
+body{
+    min-width: 210px;
+}
 .menu {
     background-color: rgb(60, 60, 60);
     height: 6em;
@@ -45,6 +49,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+   
   }
   
   .botondesplegable:hover, .botondesplegable:focus {
@@ -68,23 +73,32 @@
   .desplegable {
     /* position: relative; */
     /* float: right; */
-    grid-column: 2; /* Colocamos el desplegable en la segunda columna del grid */
+    /* grid-column: 2; Colocamos el desplegable en la segunda columna del grid */
     text-align: right;
-    
+    grid-area: sidebar;
+    /* grid-column-start: 1;
+  grid-column-end: 3; */
+
+    max-width: 150px;
     /* display: inline-block; */
   }
   
   .contenidoDelDesplegable {
     display: none;
-    /* position: relative; */
-    float: left;/*////////////////////////////////////////////////////////////////////////////////////*/
+    position: relative;
+    /* top:16%; */
+    /* width: 25%; */
+    /* left:48%; */
+    /* float: left; */
+    /*////////////////////////////////////////////////////////////////////////////////////*/
     background-color: #f6f6f6;
-    min-width: 230px;
+    /* min-width: 30px; */
+    /* max-width: 100px; */
     overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
 
-    grid-column: 2; /* Colocamos el desplegable en la segunda columna del grid */
+    /* grid-column: 2; Colocamos el desplegable en la segunda columna del grid */
     text-align: right;
   }
   
@@ -220,8 +234,8 @@ div [class^="subcontainer"]>ul>li:last-of-type {
 }
 
 .container .subcontainer4 .linksinternos>a {
-    height: 4vw;
-    width: 4vw;
+    height: 8vw;
+    width: 8vw;
     margin: 4vw;
 
     background-size: contain;
@@ -281,7 +295,7 @@ div [class^="subcontainer"]>ul>li:last-of-type {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: fit-content;
 }
@@ -337,10 +351,13 @@ div [class^="subcontainer"]>ul>li:last-of-type {
         background-image: url("linkedin.png");
     }
     
-    .menu2 .direcciones{
-
-        width: 100%;
+    .direcciones > ul{
+        margin:auto;
+        /* width: 100%; */
         text-align: center;
+        /* color:#ecaaec; */
+        padding: 1em;
+        
     }
 /* 
     .menu2 .direcciones > ul{
