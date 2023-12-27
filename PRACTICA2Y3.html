@@ -5,17 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Práctica 2 diseño de interfaces web por Victoria Muñoz Dorado</title>
 		<link href="PRACTICA2Y3.css" rel="stylesheet" type ="text/css">
-	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
           
 
 		
 	</head>
 	<body>
         <div class = "menu"> <!-- Creamos un div para el menú superior y dentro de él tenemos otros div con las diferentes opciones del menú -->
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Menú</button>
-                <div id="myDropdown" class="dropdown-content">
-                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+            <div class="desplegable">
+                <button onclick="funcion()" class="botondesplegable">Menú</button>
+                <div id="eldesplegable" class="contenidoDelDesplegable">
+                  <input type="text" placeholder="Búsqueda" id="miInput" onkeyup="funcionFiltro()">
                   <a href="#salir">Salir</a>
                   <a href="#preferencias">Preferencias y Ajustes</a>
                   <a href="#cuenta">Cuenta</a>
@@ -26,15 +26,15 @@
               <script>
               /* When the user clicks on the button,
               toggle between hiding and showing the dropdown content */
-              function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
+              function funcion() {
+                document.getElementById("eldesplegable").classList.toggle("show");
               }
               
-              function filterFunction() {
+              function funcionFiltro() {
                 var input, filter, ul, li, a, i;
-                input = document.getElementById("myInput");
+                input = document.getElementById("miInput");
                 filter = input.value.toUpperCase();
-                div = document.getElementById("myDropdown");
+                div = document.getElementById("eldesplegable");
                 a = div.getElementsByTagName("a");
                 for (i = 0; i < a.length; i++) {
                   txtValue = a[i].textContent || a[i].innerText;
@@ -46,18 +46,14 @@
                 }
               }
               </script>
-            <!-- <div class="opcionesmenu"><a href="https://www.youtube.com/">Salir</a></div>
-            <div class="opcionesmenu"><a href="https://www.google.com/maps">Preferencias y Ajustes</a></div>
-            <div class="opcionesmenu"><a href="https://www.educa2.madrid.org/web/centro.ies.piobaroja.madrid">Cuenta</a></div>
-            <div class="opcionesmenu"><a href="#">oculto</a></div> Este elemento está oculto con visibility:hidden en el css -->
-         <!--  -->
+      
         </div>
 
 
 		<div class="container">  <!-- Contenedor que contiene todo el cuerpo de la web, todo el contenido -->
        
             <div class="subcontainer1">  <!-- Subcontenedor que ocupa el 25% del ancho -->
-                <h1>TO DO</h1> 
+                <h2>TO DO</h2> 
                 <ul>  <!-- Usamos una lista para poner el contenido de la web, como hacen en la plantilla -->
                     <li>Lorem ipsum dolor sit amet</li>
                     <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
@@ -69,7 +65,7 @@
             </div>
             
             <div class="subcontainer2"> <!-- Subcontenedor que ocupa el 25% del ancho -->
-                <h1>PROGRESS</h1>
+                <h2>PROGRESS</h2>
                 <ul>
                     <li>Lorem ipsum dolor sit amet</li>
                     <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
@@ -82,7 +78,7 @@
             </div>	
 
             <div class="subcontainer3"> <!-- Subcontenedor que ocupa el 25% del ancho -->
-                <h1>DONE</h1>
+                <h2>DONE</h2>
                 <ul>
                     <li>Lorem ipsum dolor sit amet</li>
                     <li>consectetur adipiscing elit, sed do eiusmod tempor</li>
@@ -109,7 +105,7 @@
 
 
                 <div class="contenedorcalendario"><img src="Captura.PNG"/></div>  <!-- contenedor con la imagen del calendario -->
-            
+           
             </div>
 
      		
@@ -117,7 +113,7 @@
 
 
         <div class = "menu2"> <!-- contenedor con el menú inferior -->
-            <div class = "meteorito"></div>
+            <!-- <div class = "meteorito"></div> -->
             <div class = "direcciones">
                 <ul> <!-- lista con la información de contacto -->
                     <li>Dirección: False Street 123</li>
