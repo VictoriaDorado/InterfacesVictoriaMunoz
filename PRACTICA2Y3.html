@@ -11,6 +11,8 @@
 		
 	</head>
 	<body>
+
+
         <div class = "menu"> <!-- Creamos un div para el menú superior y dentro de él tenemos otros div con las diferentes opciones del menú -->
             <div class="desplegable">
                 <button onclick="funcion()" class="botondesplegable">Menú</button>
@@ -24,8 +26,7 @@
               </div>
               
               <script>
-              /* When the user clicks on the button,
-              toggle between hiding and showing the dropdown content */
+           
               function funcion() {
                 document.getElementById("eldesplegable").classList.toggle("show");
               }
@@ -47,6 +48,16 @@
               }
               </script>
       
+        </div>
+
+
+        <div class = "menuopcion2"> <!-- Creamos un div para el menú superior y dentro de él tenemos otros div con las diferentes opciones del menú -->
+            <!-- He puesto enlaces diferentes a sitios aleatorios en las opciones del menú como ejemplo -->
+            <div class="opcionesmenu"><a href="https://www.youtube.com/">Salir</a></div>
+            <div class="opcionesmenu"><a href="https://www.google.com/maps">Preferencias y Ajustes</a></div>
+            <div class="opcionesmenu"><a href="https://www.educa2.madrid.org/web/centro.ies.piobaroja.madrid">Cuenta</a></div>
+            <div class="opcionesmenu"><a href="#">oculto</a></div> <!-- Este elemento está oculto con visibility:hidden en el css -->
+  
         </div>
 
 

@@ -25,6 +25,10 @@ body{
     min-width: 200px;
 }
 
+.menuopcion2 {
+    display: none;
+}
+
 /* .opcionesmenu:last-child {
     visibility: hidden;
 } */
@@ -100,10 +104,13 @@ body{
 
     /* grid-column: 2; Colocamos el desplegable en la segunda columna del grid */
     text-align: right;
+    
   }
   
   .contenidoDelDesplegable a {
     color: black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #713b71;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -397,7 +404,9 @@ div [class^="subcontainer"]>ul>li:last-of-type {
           
         }
        
-
+        .menuopcion2 {
+            display: none;
+        }
 
         .contenedorcalendario {
          /* bottom: 1em; */
@@ -496,4 +505,63 @@ div [class^="subcontainer"]>ul>li:last-of-type {
             text-align: center;
             /* justify-content: center; */
         }
+
+        .menuopcion2 {
+            display: block;
+            
+        background-color: rgb(60, 60, 60);
+        height: 6em;
+        margin-bottom: 2em;
+        position: sticky;
+        top:0px;
+        z-index: 1;    /* Para que se mantenga la capa por encima de las demás */
+        background-image: url('planeta.png');     /* El logo principal como imagen de fondo */
+        background-repeat: no-repeat;
+        background-size: 4em;
+        padding: 0.5em;
+        box-sizing: border-box;    /* Para que no desborde, cuenta el padding y border como parte de la medida total del contenedor. */
+        background-position: left center;
+        background-origin: content-box;     /* La imagen se posicione desde el contenido */
+        background-size: contain;
+        padding:1em;
+    
+        }
+
+
+        .menu{
+            display: none;
+        }
+
+
+
+    .opcionesmenu:last-child     /* Una opción del menú que esté pero no se vea */
+    {
+        visibility: hidden;
+    }
+        
+
+    .menuopcion2:hover{ /* Cuando se posicione el ratón sobre el menú se cambia el logo */
+        background-image: url("meteorito.png"); 
+    }
+
+
+    .opcionesmenu a        /* Estilo para los links del menú superior */
+    {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-top: 1.5em;         
+        padding-right: 1.5em;
+        float: right;        /* Para que se alineen a la derecha usamos la propiedad float */
+        text-decoration:none;   
+                     
+    }
+
+    .opcionesmenu a:link 
+    {
+        color: white;
+    }
+
+    .opcionesmenu a:visited 
+    {
+        color: rgb(205, 119, 217);
+    }
     }
