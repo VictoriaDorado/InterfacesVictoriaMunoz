@@ -562,7 +562,7 @@ div [class^="subcontainer"]>ul>li:last-of-type {
 
         @keyframes ballmove {
             0% {transform: translateX(0) rotate(0);}				
-            100% {transform: translateX(200px) rotate(2turn);}
+            100% {transform: translateX(7em) rotate(2turn);}
         }
 
         @keyframes MiAnimacion {
