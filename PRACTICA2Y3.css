@@ -137,7 +137,7 @@ body{
     border: 0.1rem solid black;
     width: 100%;
     height: fit-content;
-    min-height: 40em;
+    min-height: 30em;
     position: relative;
     box-sizing: border-box;
     font-size: 16px;
@@ -196,17 +196,17 @@ div [class^="subcontainer"]>ul>li:last-of-type {
 
 }
 
-/* .video1{
-    width: 50%;
-    height: 100px;
-    margin: auto;
-    margin: 5em;
-    
-} */
+.video1 {
+    max-width: 100%; /* Ajusta el ancho máximo del contenedor de video */
+    height: auto; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
+    padding: 1em;
+    box-sizing: border-box;
+}
+
 
 .subcontainer3 {
     background-color: rgb(118, 154, 131);
-    padding: 0.5em;
+    /* padding: 0.5em; */
 
     display: flex;
     flex-wrap: nowrap;
@@ -214,14 +214,32 @@ div [class^="subcontainer"]>ul>li:last-of-type {
     flex-direction: column;
 }
 
+.video2 {
+    max-width: 100%; /* Ajusta el ancho máximo del contenedor de video */
+    height: auto; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+
 .subcontainer4 {
-    background-color: rgb(239, 229, 240);
+    /* background-color: rgb(239, 229, 240);
     color: rgb(55, 55, 55);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1em;
     position: relative;
+    height: fit-content; */
+
+
+    background-color: rgb(239, 229, 240);
+    color: rgb(55, 55, 55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    position: relative; /* Agrega una posición relativa al subcontenedor 4 */
     height: fit-content;
 }
 
@@ -290,45 +308,35 @@ div [class^="subcontainer"]>ul>li:last-of-type {
     filter: drop-shadow(0px 0px 15px black);
 }
 
-.audiodiv{
-    width: 100%;
+.audiodiv {
+    width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     position: relative;
+    margin-top: 1em;
 }
-.audio{
-    /* max-width: 2em; */
-    /* width: 15em;  */
-/* height: 5em;  */
-/* width: fit-content;
-height: auto; */
-background: rebeccapurple; 
+
+.audio {
+    max-width: 100%; /* Ajusta el ancho máximo del audio */
+    width: 100%; /* Asegura que el audio ocupe el 100% de su contenedor */
 }
 
 
 
 /* CALENDARIO */
 .contenedorcalendario {
-    margin-top: auto; 
-    position: relative;
-    top: 100%; /* Posicionamos el calendario debajo de los links internos */
-    text-align: center;
-    padding: 2em;
-    padding-bottom: 1em;
-    /* box-sizing: border-box; */
-    background-image: url("Captura.PNG");
+    width: 90%;
+    height: 10em; 
+    margin-top: 3em; 
+    background-image: url("frasemotivacional.png");
     background-repeat: no-repeat;
-    background-size: contain;
-    width: 10em;
-    height: 10em;
-    
-
+    background-size: contain; 
+    background-position: center center;
     
 }
-
 
 
 
@@ -339,14 +347,14 @@ background: rebeccapurple;
     margin-top: 2em;
     width: 100%;
     /* background-image: url('planeta.PNG');                                                SOLO SALGA EN DISPOSITIVOS GRANDES*/        
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     padding: 1.5em;
     box-sizing: border-box;
-    background-origin: content-box;
-    background-size: contain;
+    /* background-origin: content-box; */
+    /* background-size: contain; */
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: fit-content;
@@ -448,52 +456,29 @@ background: rebeccapurple;
             min-height: 800px;
           
         }
+
+        .video1 {
+           display: none;
+        }
+
+        .video2 {
+            display: none;
+        }
        
         .menuopcion2 {
             display: none;
         }
 
         .contenedorcalendario {
-         /* bottom: 1em; */
-         /* margin-top: auto;  */
-         
-         /* top: 15%;  */
-         
-         
-         /* padding-bottom: 2em; */
-
-         background-position: center;
+        
+         /* background-position: center;
 
          background-image: url("calendario2.jpg");
+ */
+            background-image: url("calendario2.jpg");
+            width: 90%;
+            height: 15em; 
 
-
-         /* position: relative;
-         top:0em; */
-
-
-
-
-
-         /* left:50%; */
-
-
-
-
-
-         /* text-align: center;
-         padding: 1em; */
-
-
-
-
-         /* box-sizing: border-box; */
-     
-
-
-
-         /* margin-top: auto;
-         position: absolute;
-         bottom: 3rem; */
             
         }
 
@@ -530,18 +515,62 @@ background: rebeccapurple;
            } */
 
 
-
+           .video1 {
+            display:block;
+         }
+ 
+         .video2 {
+             display: block;
+         }
            .menu2{     /* Propiedades de todo en menú inferior */
       
-            background-image: url('planeta.PNG');     /* Ponemos el logo como imagen de fondo */
-            justify-content: flex-end;
+            /* background-image: url('planeta.PNG');     Ponemos el logo como imagen de fondo */
+            /* justify-content: flex-end; */
+
+       
+
+            animation-name: MiAnimacion;
+			animation-duration: 7s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate; 
+            animation-fill-mode: both;
   
         }
-    
-        .menu2 li{     /* Estilos aplicados sobre la lista dentro del menú inferior */
-            padding-left: 8rem;
-           
+
+        .meteorito{
+            width: 6em;
+            height: 6em;
+
+            /* background-color: #713b71; */
+            position: absolute;
+            left: 4em;
+            background-image: url('planeta.PNG');
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            
+
+        
+
+            animation-name: ballmove;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;				
+            animation-fill-mode:forwards;
+            animation-direction: alternate;	
         }
+
+        @keyframes ballmove {
+            0% {transform: translateX(0) rotate(0);}				
+            100% {transform: translateX(200px) rotate(2turn);}
+        }
+
+        @keyframes MiAnimacion {
+			0% { background-color: rgb(60, 60, 60); }
+            50% { background-color:#713b71; }
+            100% { background-color: rgb(60, 60, 60); }
+		}
+    
 
         .menu2 .redessociales    /* Estilos aplicados sobre los iconos de redes sociales del menú inferior */
         {
@@ -550,10 +579,7 @@ background: rebeccapurple;
             flex-wrap: nowrap;
 
 
-            display:flex;     /* Volvemos a usar display flex para distribuir los demás elementos dentro de este contenedor, el este caso los iconos de las redes sociales */
-            flex-direction: row-reverse;
-            flex-wrap: nowrap;
-            justify-content: flex-start; /* Centra horizontalmente los iconos */
+            justify-content: center; /* Centra horizontalmente los iconos */
             align-items: center;
             /* align-content: center; */
             width: 25%;
@@ -629,8 +655,12 @@ background: rebeccapurple;
 
     .contenedorcalendario {
      
-        background-image: url("frasemotivacional.png");;
+        background-image: url("Captura.PNG");
        
            
        }
+
+       .container .subcontainer4 .linksinternos {
+      margin-top: 1em;
+    }
     }
