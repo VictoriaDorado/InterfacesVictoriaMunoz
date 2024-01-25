@@ -182,8 +182,32 @@ div [class^="subcontainer"]>ul>li:last-of-type {
     padding: 0.5em;
 }
 
+#transicion{
+    height: 5em;
+    width: 5em;
+    /* background-color: #713b71; */
+    background-image: url("planeta.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 2em auto;
+    transition-timing-function: linear;
 
+    /* transition: width 2s linear 2s, transform 4s linear 1s;
+    transition-delay: 3s; */
 
+/* transition-property: background-color; */
+  transition-duration: 3s;
+}
+
+#transicion:hover {
+    /* width: 300px;
+    transform: rotate(180deg); */
+     /* background-color: #713b71; */
+     height: 7em;
+    width: 7em;
+   
+  }
+  
 
 .subcontainer2 {
     background-color: rgb(138, 74, 218);
@@ -198,8 +222,9 @@ div [class^="subcontainer"]>ul>li:last-of-type {
 
 .video1 {
     max-width: 100%; /* Ajusta el ancho máximo del contenedor de video */
-    height: auto; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
+    height: 10em; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
     padding: 1em;
+
     box-sizing: border-box;
 }
 
@@ -216,7 +241,7 @@ div [class^="subcontainer"]>ul>li:last-of-type {
 
 .video2 {
     max-width: 100%; /* Ajusta el ancho máximo del contenedor de video */
-    height: auto; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
+    height: 10em; /* Hace que la altura se ajuste automáticamente manteniendo la proporción del video */
     padding: 1em;
     box-sizing: border-box;
 }
