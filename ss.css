@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Establece la altura mínima del cuerpo como el 100% de la altura de la ventana */
+    background-image: url('synth.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 20px auto;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    align-items: center; /* Centra las tarjetas verticalmente */
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+  #mensaje {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #eae7e7;
+  }
+
+  #seleccionarDificultad {
+    margin-top: 20px;
+  }
+
+
+  button {
+    background-color: #c475ce;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #e9acf1;
+  }
+
+
+  .divprincipal {
+    border: rgb(174, 116, 180) solid 2px;
+    height: 40em;
+    width: 40em;
+    background-color: #4f0c55;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos hijos estén apilados verticalmente */
+    justify-content: center; /* Centra verticalmente los elementos hijos */
+    /* opacity: 0.8; */
+}
