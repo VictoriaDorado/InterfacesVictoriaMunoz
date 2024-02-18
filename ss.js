@@ -6,7 +6,8 @@ function establecerDificultad() {
   inicializar();
   contenedor.style.display = 'flex';
   document.getElementById('seleccionarDificultad').style.display = 'none';
-  document.getElementById('texto').style.display = 'none';
+  document.getElementById('botontexto').style.display = 'none';
+  
 }
 
 function inicializar() {
@@ -37,3 +38,8 @@ function flipCard(card) {
 function mostrarmensaje(text) {
   mensaje.textContent = text;
 }
+
+function mostrarOcultarTexto() {
+    var textoElemento = document.getElementById('texto');
+    textoElemento.style.display = (textoElemento.style.display === 'none') ? 'block' : 'none';
+  }

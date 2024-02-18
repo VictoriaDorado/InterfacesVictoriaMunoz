@@ -10,17 +10,19 @@
 </head>
 <body>
     <div class="divprincipal">
-  
+    <h2 class="frases">Escoge un nivel de dificultad</h2>
     <div id="seleccionarDificultad">
         <button onclick="establecerDificultad('bajo')">dificultad 1</button>
         <button onclick="establecerDificultad('medio')">dificultad 2</button>
         <button onclick="establecerDificultad('alto')">dificultad 3</button>
       </div>
       
-      <div id="texto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lectus vel odio luctus convallis. Integer lacinia vestibulum justo, nec cursus urna. Vestibulum euismod, nisl a facilisis luctus, justo justo fermentum libero, ac bibendum sapien nunc vel enim. Fusce tristique urna in neque feugiat, sit amet eleifend tortor cursus. In hac habitasse platea dictumst. Sed quis leo nec sapien auctor auctor nec vel massa. Proin euismod quam sit amet purus imperdiet, eu fermentum arcu fringilla. Aenean in velit vitae mi pharetra feugiat vel vel nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus fermentum dictum velit, eget bibendum arcu blandit eu. Suspendisse potenti. Quisque et lectus vel nisi scelerisque hendrerit.</p>
-    </div>
-      
+      <br><br>
+
+      <button id="botontexto" onclick="mostrarOcultarTexto()">Instrucciones del juego</button>
+      <div id="texto" style="display: none;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
 
   <div id="contenedor"></div>
   <div id="mensaje">Esto es una prueba</div>

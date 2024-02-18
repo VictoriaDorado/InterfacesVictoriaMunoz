@@ -37,6 +37,8 @@ body {
   box-shadow: 0 4px 8px #fff;
   text-align: justify;
   color: #fff;
+  display: none; /* Inicialmente oculto */
+
 }
 
 
@@ -83,7 +85,7 @@ button {
   margin: 0 5px;
   transition: background-color 0.3s ease;
   border: 2px solid #fff;
-  /* box-shadow: 0 4px 4px 4px #fff; */
+  max-width: 10em;
 }
 
 button:hover {
@@ -92,6 +94,7 @@ button:hover {
 
 
 .divprincipal {
+ 
   border: rgb(174, 116, 180) solid 2px;
   height: 40em;
   width: 40em;
@@ -99,5 +102,11 @@ button:hover {
   display: flex;
   flex-direction: column; /* Asegura que los elementos hijos estén apilados verticalmente */
   justify-content: center; /* Centra verticalmente los elementos hijos */
+  align-items: center; /* Centra horizontalmente los elementos hijos */
+ 
   /* opacity: 0.8; */
+}
+
+.frases{
+  color: #fff;
 }
