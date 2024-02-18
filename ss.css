@@ -112,3 +112,20 @@ button:hover {
 }
 
 
+#cuentaRegresiva{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Color del texto */
+  background-color: #c475ce; /* Color de fondo */
+  padding: 20px;
+  border-radius: 10px;
+  /* width: 15em;
+  height: 7em; */
+  display: none; 
+  /*Inicialmente oculto*/
+
+}

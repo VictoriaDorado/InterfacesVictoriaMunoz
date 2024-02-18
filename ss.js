@@ -1,30 +1,72 @@
 const contenedor = document.getElementById('contenedor');
 const mensaje = document.getElementById('mensaje');
-const symbols = ['1', '2', '3', '4', '5', '6', '7', '8'];
-let cards = [];
-let flippedCards = [];
-let canFlip = true;
+const numeros = ['1', '2', '3', '4', '5', '6', '7', '8'];
+// const numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+let cartas = [];
+let cartasgiradas = [];
+let puedegirar = true;
 
 
 function establecerDificultad() {
+
+ 
+
   inicializar();
-  contenedor.style.display = 'flex';
-  document.getElementById('seleccionarDificultad').style.display = 'none';
-  document.getElementById('botontexto').style.display = 'none';
 }
 
 function inicializar() {
-  barajarcartas();
-  mostrarmensaje('Encuentra todos los pares de tarjetas.');
+  var elementoFrases = document.getElementsByClassName('frases')[0];
+
+  if (elementoFrases) {
+    elementoFrases.style.display = 'none';
+  }    
+  
+    document.getElementById('mensaje').style.display = 'none';
+    document.getElementById('seleccionarDificultad').style.display = 'none';
+    document.getElementById('botontexto').style.display = 'none';
+    mostrarCuentaRegresiva().then(() => {
+    contenedor.style.display = 'flex';
+    barajarcartas();
+    mostrarmensaje('Encuentra todos los pares de tarjetas.');
+  });
 }
+
+
+
+
+
+function mostrarCuentaRegresiva() {
+  return new Promise((resolve) => {
+    let contador = 2;
+
+    const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva");
+
+    cuentaRegresivaElemento.style.display = "block";
+    cuentaRegresivaElemento.innerHTML = `Comenzando en 3`;
+
+    const intervalo = setInterval(() => {
+      cuentaRegresivaElemento.innerHTML = `Comenzando en ${contador}`;
+      contador--;
+
+      if (contador < 0) {
+        clearInterval(intervalo);
+        cuentaRegresivaElemento.innerHTML = "";
+        cuentaRegresivaElemento.style.display = "none";
+        resolve();
+      }
+    }, 1000);
+  });
+}
+
 
 
 
 
 function barajarcartas() 
 {
+  document.getElementById('mensaje').style.display = 'block';
     // Crear una copia de las cartas duplicadas. Tenemos un array con los simbolos duplicados
-    const todascartas = symbols.concat(symbols); //symbols.concat(symbols.slice())
+    const todascartas = numeros.concat(numeros); //numeros.concat(numeros.slice())
 
     // Barajar las cartas
     for (let i = 0; i < todascartas.length; i++) 
@@ -36,8 +78,8 @@ function barajarcartas()
         todascartas[randomIndex] = aux;
     }
 
-    // Asignar el array barajado a la variable cards
-    cards = todascartas;
+    // Asignar el array barajado a la variable cartas
+    cartas = todascartas;
 
     // Renderizar las cartas
     devolvercartas();
@@ -46,14 +88,14 @@ function barajarcartas()
 function devolvercartas() {
   contenedor.innerHTML = '';
 
-  for (let x = 0; x < cards.length; x++) {
-  const symbol = cards[x];
+  for (let x = 0; x < cartas.length; x++) {
+  const num = cartas[x];
 
   const card = document.createElement('div');
   card.classList.add('card'); // le añadimos una clase
-  card.textContent = symbol;
+  card.textContent = num;
   card.setAttribute('data-index', x);
-  card.addEventListener('click', flipCard);
+  card.addEventListener('click', girarcarta);
 
     contenedor.appendChild(card);
   }
@@ -61,9 +103,9 @@ function devolvercartas() {
 
 
 // Función para girar una tarjeta
-function flipCard(event) {
+function girarcarta(event) {
   // Verificar si se puede girar una tarjeta
-  if (!canFlip) {
+  if (!puedegirar) {
       return; // Si no se puede, salir de la función
   }
 
@@ -74,7 +116,7 @@ function flipCard(event) {
   const index = parseInt(clickedCard.getAttribute('data-index'));
 
   // Evitar hacer clic en tarjetas ya giradas
-  if (flippedCards.includes(index)) {
+  if (cartasgiradas.includes(index)) {
       return; // Si la tarjeta ya está volteada, salir de la función
   }
 
@@ -82,36 +124,37 @@ function flipCard(event) {
   clickedCard.classList.add('hidden');
 
   // Registrar la tarjeta como volteada
-  flippedCards.push(index);
+  cartasgiradas.push(index);
 
   // Verificar si se han volteado dos tarjetas
-  if (flippedCards.length === 2) {
-      canFlip = false; // Desactivar la capacidad de voltear temporalmente
+  if (cartasgiradas.length === 2) {
+    puedegirar = false; // Desactivar la capacidad de voltear temporalmente
       comprobariguales();
   }
   }
 
 
   function comprobariguales() {
-    const index1 = flippedCards[0];
-    const index2 = flippedCards[1];
-    const card1 = document.querySelector('.card[data-index="' + index1 + '"]');
-    const card2 = document.querySelector('.card[data-index="' + index2 + '"]');
+    const indice1 = cartasgiradas[0];
+    const indice2 = cartasgiradas[1];
+    const carta1 = document.querySelector('.card[data-index="' + indice1 + '"]');
+    const carta2 = document.querySelector('.card[data-index="' + indice2 + '"]');
 
-    if (cards[index1] === cards[index2]) // si las cartas coinciden vaciamos el array.
+    if (cartas[indice1] === cartas[indice2]) // si las cartas coinciden vaciamos el array.
     {
-        flippedCards = [];
+      cartasgiradas = [];
     }
     else // si no coinciden
     {
-        card1.classList.remove('hidden');
-        card2.classList.remove('hidden');
-        flippedCards = [];
+      carta1.classList.remove('hidden');
+      carta2.classList.remove('hidden');
+      cartasgiradas = [];
     }
 
-    canFlip = true;
+    puedegirar = true;
 
-    if (flippedCards.length === cards.length) {
+    if (cartasgiradas.length === cartas.length) {
+      contenedor.style.display = 'none';
       mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); // por alguna razón no funciona
     }
 }
