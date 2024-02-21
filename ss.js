@@ -114,7 +114,19 @@ function devolvercartas() {
   ajustarMargenes();
 
   // Agrega esta llamada a la nueva función al final de devolvercartas
-  iniciarCuentaAtras(segundos); // Aquí puedes ajustar el tiempo límite del juego en segundos
+  iniciarCuentaAtras(segundos) // Cambia el valor según tus necesidades
+  .then((mensaje) => {
+    // console.log(mensaje); 
+    mostrarmensaje(mensaje);
+    // Muestra el mensaje si la promesa se resuelve correctamente
+    // Aquí puedes realizar otras acciones si la promesa se resuelve
+  })
+  .catch((error) => {
+    // console.error(error); 
+    mostrarmensaje(error);
+    // Muestra el mensaje de error si la promesa es rechazada
+    // Aquí puedes realizar otras acciones si la promesa es rechazada
+  });
 }
 
 // Agrega esta función al final del código
@@ -188,7 +200,7 @@ function comprobariguales() {
   if (c == cartas.length/2) {
     // alert('holaaaaaaa');
     contenedor.style.display = 'none';
-    mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); 
+    // mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); //////////////////////////////////////////////////////////////
     bandera = true;
     document.getElementById("botonreinicio").style.display = 'block';
     document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
@@ -208,7 +220,7 @@ function mostrarOcultarTexto() {
 
 
 function iniciarCuentaAtras(tiempo) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     let tiempoRestante = tiempo;
 
     const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva2");
@@ -219,26 +231,31 @@ function iniciarCuentaAtras(tiempo) {
     const intervalo = setInterval(() => {
       tiempoRestante--;
 
-      if (tiempoRestante >= 0 && !bandera) { // Modifica la condición
+      if (tiempoRestante >= 0 && !bandera) {
         cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
       } else {
         clearInterval(intervalo);
-        
+
         if (!bandera) {
-          cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
-          finalizarJuego(); // Llama a la función para finalizar el juego solo si la bandera es falsa
+          // cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
+          finalizarJuego();
+          // Rechaza la promesa con un mensaje de tiempo agotado
+          reject("¡Tiempo agotado!");
+        } else {
+          // Resuelve la promesa si la bandera es verdadera
+          resolve("Enhorabuena!");
         }
-        resolve(); // Resuelve la promesa después de mostrar el mensaje de tiempo agotado
       }
     }, 1000);
   });
 }
 
 
+
 function finalizarJuego() {
 
   document.getElementById('contenedor').style.display = 'none';
-  document.getElementById('mensaje').textContent = 'Game Over';
+  // document.getElementById('mensaje').textContent = 'Game Over';
   document.getElementById("botonreinicio").style.display = 'block';
   document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
 
