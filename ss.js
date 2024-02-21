@@ -6,6 +6,7 @@ let cartasgiradas = [];
 let puedegirar = true;
 
 let numeros;
+var segundos;
 
 function establecerDificultad(difficulty) {
   let cartasporfila, cartasporcolumna;
@@ -14,14 +15,17 @@ function establecerDificultad(difficulty) {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8'];
     cartasporfila = 4;
     cartasporcolumna = 4;
+    segundos = 10;
   } else if (difficulty === 'medio') {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
     cartasporfila = 6;
     cartasporcolumna = 6;
+    segundos = 40;
   } else if (difficulty === 'alto') {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32'];
     cartasporfila = 8;
     cartasporcolumna = 8;
+    segundos = 60;
   }
 
   inicializar(cartasporfila, cartasporcolumna);
@@ -107,8 +111,10 @@ function devolvercartas() {
 
     contenedor.appendChild(card);
   }
-
   ajustarMargenes();
+
+  // Agrega esta llamada a la nueva función al final de devolvercartas
+  iniciarCuentaAtras(segundos); // Aquí puedes ajustar el tiempo límite del juego en segundos
 }
 
 // Agrega esta función al final del código
@@ -184,3 +190,40 @@ function mostrarOcultarTexto() {
   var textoElemento = document.getElementById('texto');
   textoElemento.style.display = (textoElemento.style.display === 'none') ? 'block' : 'none';
 }
+
+
+
+function iniciarCuentaAtras(tiempo) {
+  return new Promise((resolve) => {
+    let tiempoRestante = tiempo;
+
+    const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva2");
+
+    cuentaRegresivaElemento.style.display = "block";
+    cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
+
+    const intervalo = setInterval(() => {
+      tiempoRestante--;
+
+      if (tiempoRestante >= 0) {
+        cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
+      } else {
+        clearInterval(intervalo);
+        cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
+        finalizarJuego(); // Llama a la función para finalizar el juego
+        resolve(); // Resuelve la promesa después de mostrar el mensaje de tiempo agotado
+      }
+    }, 1000);
+  });
+}
+
+function finalizarJuego() {
+  // Agrega aquí la lógica para manejar el final del juego
+  // Puedes reiniciar el juego, mostrar un mensaje adicional, etc.
+  // Por ejemplo: reiniciarJuego();
+
+  document.getElementById('contenedor').style.display = 'none';
+  document.getElementById('mensaje').textContent = 'Game Over';
+
+}
+
