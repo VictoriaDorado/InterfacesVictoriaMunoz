@@ -25,7 +25,7 @@ function establecerDificultad(difficulty) {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32'];
     cartasporfila = 8;
     cartasporcolumna = 8;
-    segundos = 60;
+    segundos = 120;
   }
 
   inicializar(cartasporfila, cartasporcolumna);
@@ -190,7 +190,7 @@ function comprobariguales() {
     contenedor.style.display = 'none';
     mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); 
     bandera = true;
-    document.getElementById("botonreinicio").style.display('block');
+    document.getElementById("botonreinicio").style.display = 'block';
     document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
   }
 }
@@ -236,13 +236,10 @@ function iniciarCuentaAtras(tiempo) {
 
 
 function finalizarJuego() {
-  // Agrega aquí la lógica para manejar el final del juego
-  // Puedes reiniciar el juego, mostrar un mensaje adicional, etc.
-  // Por ejemplo: reiniciarJuego();
 
   document.getElementById('contenedor').style.display = 'none';
   document.getElementById('mensaje').textContent = 'Game Over';
-  document.getElementById("botonreinicio").style.display('block');
+  document.getElementById("botonreinicio").style.display = 'block';
   document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
 
 }
@@ -263,9 +260,11 @@ function reiniciarJuego() {
   mensaje.style.display = 'none';
   document.getElementById('seleccionarDificultad').style.display = 'block';
   document.getElementById('botontexto').style.display = 'block';
+  document.querySelector('.frases').style.display = 'block';
+  document.getElementById('mensaje').style.display = 'block';
+  document.getElementById('mensaje').textContent = '';
+  document.getElementById("botonreinicio").style.display = 'none';
+  document.getElementById("cuentaRegresiva2").style.display = 'none';
 
-  // Llamar a la función para seleccionar la dificultad
-  // Esto dependerá de cómo hayas implementado tu interfaz de usuario
-  // Puedes llamar a 'establecerDificultad' con la dificultad predeterminada o mostrar un menú para que el jugador seleccione la dificultad.
-  // Por ejemplo: establecerDificultad('medio');
+
 }
