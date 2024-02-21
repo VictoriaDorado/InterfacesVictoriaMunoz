@@ -15,7 +15,7 @@ function establecerDificultad(difficulty) {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8'];
     cartasporfila = 4;
     cartasporcolumna = 4;
-    segundos = 10;
+    segundos = 15;
   } else if (difficulty === 'medio') {
     numeros = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'];
     cartasporfila = 6;
@@ -157,7 +157,8 @@ function girarcarta(event) {
     comprobariguales();
   }
 }
-
+let c = 0;
+var bandera = false;
 function comprobariguales() {
   const indice1 = cartasgiradas[0];
   const indice2 = cartasgiradas[1];
@@ -167,6 +168,7 @@ function comprobariguales() {
   if (cartas[indice1] === cartas[indice2]) {
     // si las cartas coinciden vaciamos el array.
     cartasgiradas = [];
+    c++;
   } else {
     // si no coinciden
     carta1.classList.remove('hidden');
@@ -174,13 +176,25 @@ function comprobariguales() {
     cartasgiradas = [];
   }
 
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+  console.log("Valor de c:", c); // Agrega este mensaje de consola
+  console.log("longitud de cartas:", cartas.length/2); // Agrega este mensaje de consola
+////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+
   puedegirar = true;
 
-  if (cartasgiradas.length === cartas.length) {
+  if (c == cartas.length/2) {
+    // alert('holaaaaaaa');
     contenedor.style.display = 'none';
     mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); 
+    bandera = true;
+    document.getElementById("botonreinicio").style.display('block');
+    document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
   }
 }
+
 
 function mostrarmensaje(text) {
   mensaje.textContent = text;
@@ -205,17 +219,21 @@ function iniciarCuentaAtras(tiempo) {
     const intervalo = setInterval(() => {
       tiempoRestante--;
 
-      if (tiempoRestante >= 0) {
+      if (tiempoRestante >= 0 && !bandera) { // Modifica la condición
         cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
       } else {
         clearInterval(intervalo);
-        cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
-        finalizarJuego(); // Llama a la función para finalizar el juego
+        
+        if (!bandera) {
+          cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
+          finalizarJuego(); // Llama a la función para finalizar el juego solo si la bandera es falsa
+        }
         resolve(); // Resuelve la promesa después de mostrar el mensaje de tiempo agotado
       }
     }, 1000);
   });
 }
+
 
 function finalizarJuego() {
   // Agrega aquí la lógica para manejar el final del juego
@@ -224,6 +242,30 @@ function finalizarJuego() {
 
   document.getElementById('contenedor').style.display = 'none';
   document.getElementById('mensaje').textContent = 'Game Over';
+  document.getElementById("botonreinicio").style.display('block');
+  document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
 
 }
 
+function reiniciarJuego() {
+  // Restablecer variables a su estado inicial
+  cartas = [];
+  cartasgiradas = [];
+  puedegirar = true;
+  numeros = [];
+  segundos = 0;
+  c = 0;
+  bandera = false;
+
+  // Restablecer elementos del DOM
+  contenedor.innerHTML = '';
+  contenedor.style.display = 'none';
+  mensaje.style.display = 'none';
+  document.getElementById('seleccionarDificultad').style.display = 'block';
+  document.getElementById('botontexto').style.display = 'block';
+
+  // Llamar a la función para seleccionar la dificultad
+  // Esto dependerá de cómo hayas implementado tu interfaz de usuario
+  // Puedes llamar a 'establecerDificultad' con la dificultad predeterminada o mostrar un menú para que el jugador seleccione la dificultad.
+  // Por ejemplo: establecerDificultad('medio');
+}
