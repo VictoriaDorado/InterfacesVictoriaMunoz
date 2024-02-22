@@ -42,6 +42,7 @@ function inicializar(cartasporfila, cartasporcolumna) {
   document.getElementById('mensaje').style.display = 'none';
   document.getElementById('seleccionarDificultad').style.display = 'none';
   document.getElementById('botontexto').style.display = 'none';
+  
  
   mostrarCuentaRegresiva().then(() => {
     contenedor.style.display = 'grid';
@@ -79,6 +80,7 @@ function mostrarCuentaRegresiva() {
 
 function barajarcartas() {
   document.getElementById('mensaje').style.display = 'block';
+  document.getElementById('cuentaclicks').style.display = 'block';
   // Crear una copia de las cartas duplicadas. Tenemos un array con los simbolos duplicados
   const todascartas = numeros.concat(numeros); //numeros.concat(numeros.slice())
 
@@ -98,7 +100,7 @@ function barajarcartas() {
   devolvercartas();
   juegoIniciado = true;
 
-  // Mostrar el contador después de iniciar el juego
+  // Mostrar el contador
   const contador = document.querySelector('num-counter-1');
   contador.setVisibility(true);
 
@@ -123,20 +125,22 @@ function devolvercartas() {
   }
   ajustarMargenes();
 
-  // Agrega esta llamada a la nueva función al final de devolvercartas
-  iniciarCuentaAtras(segundos) // Cambia el valor según tus necesidades
+
+
+
+  iniciarCuentaAtras(segundos)
   .then((mensaje) => {
-    // console.log(mensaje); 
+
     mostrarmensaje(mensaje);
-    // Muestra el mensaje si la promesa se resuelve correctamente
-    // Aquí puedes realizar otras acciones si la promesa se resuelve
+
   })
   .catch((error) => {
-    // console.error(error); 
+
     mostrarmensaje(error);
-    // Muestra el mensaje de error si la promesa es rechazada
-    // Aquí puedes realizar otras acciones si la promesa es rechazada
+    
   });
+
+
 }
 
 // Agrega esta función al final del código
@@ -199,21 +203,13 @@ function comprobariguales() {
   }
 
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
-  // console.log("Valor de c:", c); 
-  // console.log("longitud de cartas:", cartas.length/2); 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-
   puedegirar = true;
 
   if (c == cartas.length/2) {
-    // alert('holaaaaaaa');
     contenedor.style.display = 'none';
-    // mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); //////////////////////////////////////////////////////////////
     bandera = true;
     juegoIniciado = false;
-    // Mostrar el contador después de iniciar el juego
+
     comprobarnumeroclicks();
     const contador = document.querySelector('num-counter-1');
     contador.setVisibility(false);
@@ -258,7 +254,7 @@ function iniciarCuentaAtras(tiempo) {
           reject("¡Tiempo agotado!");
         } else {
           // Resuelve la promesa si la bandera es verdadera
-          resolve("Enhorabuena!");
+          resolve("¡Enhorabuena, has ganado!");
         }
       }
     }, 1000);
@@ -275,7 +271,6 @@ function finalizarJuego() {
   contador.setVisibility(false);
   comprobarnumeroclicks();
   document.getElementById('contenedor').style.display = 'none';
-  // document.getElementById('mensaje').textContent = 'Game Over';
   document.getElementById("botonreinicio").style.display = 'block';
   document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
 
@@ -306,6 +301,7 @@ function reiniciarJuego() {
   document.querySelector('.frases').style.display = 'block';
   document.getElementById('mensaje').style.display = 'block';
   document.getElementById('mensaje').textContent = '';
+  document.getElementById('numeroclicks').style.display = 'none';
   document.getElementById("botonreinicio").style.display = 'none';
   document.getElementById("cuentaRegresiva2").style.display = 'none';
 
@@ -326,7 +322,9 @@ class Counter1 extends HTMLElement {
     super();
     this.x = 0;
     this.style.display = 'none';  // Oculta el contador por defecto
-    document.addEventListener('click', () => {
+    
+    document.getElementById('contenedor').addEventListener('click', () => {
+
       if (juegoIniciado && this.style.display !== 'none') {
         this.clicked();
       }
@@ -343,16 +341,16 @@ class Counter1 extends HTMLElement {
   }
 
   render() {
-    this.textContent = this.x.toString();
+    this.textContent = 'Clicks: '+this.x.toString();
   }
 
   setVisibility(visible) {
     this.style.display = visible ? 'block' : 'none';
+    document.getElementById('cuentaclicks').style.display = this.style.display;
   }
 }
 
 window.customElements.define('num-counter-1', Counter1);
-
 
 
 
@@ -366,19 +364,28 @@ function comprobarnumeroclicks() {
   // Comparar el número de clics con la cantidad de cartas
   if (numeroDeClics + 1 === cartas.length) {
     // Si son iguales, mostrar mensaje de juego completado con máxima puntuación
-    mostrarMensajeFinal('¡Juego completado con máxima puntuación!');
-  } else if (numeroDeClics > cartas.length) {
+    document.getElementById('numeroclicks').textContent = `Has hecho el mismo número de clicks que cartas hay: ${numeroDeClics + 1}.`;
+
+    // Establecer la visibilidad del mensaje
+    document.getElementById('numeroclicks').style.display = 'block';
+  } else if (numeroDeClics + 1 > cartas.length) {
     // Si hay más clics que cartas, mostrar mensaje de puedes hacerlo mejor
-    mostrarMensajeFinal('¡Puedes hacerlo mejor!');
+    var clicksextra = (numeroDeClics + 1) - cartas.length;
+    document.getElementById('numeroclicks').textContent = `Optimiza el número de clicks. Has hecho ${clicksextra} clicks de más.`;
+
+    // Establecer la visibilidad del mensaje
+    document.getElementById('numeroclicks').style.display = 'block';
+  } else {
+    // Si no se cumplen las condiciones anteriores, ocultar el mensaje
+    document.getElementById('numeroclicks').style.display = 'none';
+    document.getElementById('cuentaclicks').style.display = 'none';
   }
 
-  console.log('Número de clics:', numeroDeClics);
+  console.log('Número de clicks:', numeroDeClics);
 }
 
-function mostrarMensajeFinal(mensaje) {
-  // Muestra el mensaje final en algún lugar de tu aplicación
-  console.log(mensaje);
-}
+
+
 
 
 

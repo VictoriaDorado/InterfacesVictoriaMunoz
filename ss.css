@@ -126,15 +126,11 @@ button:hover {
   transform: translate(-50%, -50%);
   font-size: 24px;
   font-weight: bold;
-  color: #ffffff; /* Color del texto */
-  background-color: #c475ce; /* Color de fondo */
+  color: #ffffff; 
+  background-color: #c475ce; 
   padding: 20px;
   border-radius: 10px;
-  /* width: 15em;
-  height: 7em; */
-  display: none; 
-  /*Inicialmente oculto*/
-
+  display: none; /*Inicialmente oculto*/
 }
 
 
@@ -148,28 +144,41 @@ button:hover {
   background-color: #c475ce; /* Color de fondo */
   padding: 1em;
   border-radius: 10px;
-
   display: none; 
-  /*Inicialmente oculto*/
-
-}
+ }
 
 #botonreinicio{
   margin: 2em;
 }
 
-
-/* #cuentaclicks{
-  position: fixed;
-  top: 15%;
+#cuentaclicks {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  float: right;
+  width: 90px;
+  height: 90px;
+  top: 17%;
   left: 76%;
+  position: fixed;
   font-size: 18px;
-  font-weight: bold;
-  color: #ffffff; 
   background-color: #c475ce; 
   border-radius: 10px;
+  display: none;
+}
 
-  display: none; 
- 
+#cuentaclicks num-counter-1 {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
 
-} */
+#numeroclicks{
+  text-align: justify;
+  color: #fff;
+  font-weight: bold;
+}
