@@ -4,6 +4,7 @@ const mensaje = document.getElementById('mensaje');
 let cartas = [];
 let cartasgiradas = [];
 let puedegirar = true;
+let juegoIniciado = false;
 
 let numeros;
 var segundos;
@@ -41,6 +42,7 @@ function inicializar(cartasporfila, cartasporcolumna) {
   document.getElementById('mensaje').style.display = 'none';
   document.getElementById('seleccionarDificultad').style.display = 'none';
   document.getElementById('botontexto').style.display = 'none';
+ 
   mostrarCuentaRegresiva().then(() => {
     contenedor.style.display = 'grid';
     contenedor.style.gridTemplateColumns = `repeat(${cartasporfila}, 1fr)`;
@@ -94,6 +96,14 @@ function barajarcartas() {
 
   // Renderizar las cartas
   devolvercartas();
+  juegoIniciado = true;
+
+  // Mostrar el contador después de iniciar el juego
+  const contador = document.querySelector('num-counter-1');
+  contador.setVisibility(true);
+
+
+
 }
 
 
@@ -190,8 +200,8 @@ function comprobariguales() {
 
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////
-  console.log("Valor de c:", c); // Agrega este mensaje de consola
-  console.log("longitud de cartas:", cartas.length/2); // Agrega este mensaje de consola
+  // console.log("Valor de c:", c); 
+  // console.log("longitud de cartas:", cartas.length/2); 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
   
 
@@ -202,6 +212,11 @@ function comprobariguales() {
     contenedor.style.display = 'none';
     // mostrarmensaje("¡Felicidades! Has encontrado todos los pares."); //////////////////////////////////////////////////////////////
     bandera = true;
+    juegoIniciado = false;
+    // Mostrar el contador después de iniciar el juego
+    comprobarnumeroclicks();
+    const contador = document.querySelector('num-counter-1');
+    contador.setVisibility(false);
     document.getElementById("botonreinicio").style.display = 'block';
     document.getElementById("botonreinicio").addEventListener("click", reiniciarJuego);
   }
@@ -254,6 +269,11 @@ function iniciarCuentaAtras(tiempo) {
 
 function finalizarJuego() {
 
+  juegoIniciado = false;
+  const contador = document.querySelector('num-counter-1');
+
+  contador.setVisibility(false);
+  comprobarnumeroclicks();
   document.getElementById('contenedor').style.display = 'none';
   // document.getElementById('mensaje').textContent = 'Game Over';
   document.getElementById("botonreinicio").style.display = 'block';
@@ -271,6 +291,12 @@ function reiniciarJuego() {
   c = 0;
   bandera = false;
 
+ // Reiniciar el contador de clics
+  const contador = document.querySelector('num-counter-1');
+  contador.x = 0;
+  contador.render(); // Renderiza el contador con el nuevo valor
+
+
   // Restablecer elementos del DOM
   contenedor.innerHTML = '';
   contenedor.style.display = 'none';
@@ -285,3 +311,79 @@ function reiniciarJuego() {
 
 
 }
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////// WEB COMPONENT ////////////////////////////////////////////////////////////
+
+class Counter1 extends HTMLElement {
+  constructor() {
+    super();
+    this.x = 0;
+    this.style.display = 'none';  // Oculta el contador por defecto
+    document.addEventListener('click', () => {
+      if (juegoIniciado && this.style.display !== 'none') {
+        this.clicked();
+      }
+    });
+  }
+
+  clicked() {
+    this.x++;
+    this.render();
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.textContent = this.x.toString();
+  }
+
+  setVisibility(visible) {
+    this.style.display = visible ? 'block' : 'none';
+  }
+}
+
+window.customElements.define('num-counter-1', Counter1);
+
+
+
+
+function comprobarnumeroclicks() {
+  // Obtén una referencia al contador
+  const contador = document.querySelector('num-counter-1');
+
+  // Recupera el número de clics
+  const numeroDeClics = contador.x;
+
+  // Comparar el número de clics con la cantidad de cartas
+  if (numeroDeClics + 1 === cartas.length) {
+    // Si son iguales, mostrar mensaje de juego completado con máxima puntuación
+    mostrarMensajeFinal('¡Juego completado con máxima puntuación!');
+  } else if (numeroDeClics > cartas.length) {
+    // Si hay más clics que cartas, mostrar mensaje de puedes hacerlo mejor
+    mostrarMensajeFinal('¡Puedes hacerlo mejor!');
+  }
+
+  console.log('Número de clics:', numeroDeClics);
+}
+
+function mostrarMensajeFinal(mensaje) {
+  // Muestra el mensaje final en algún lugar de tu aplicación
+  console.log(mensaje);
+}
+
+
+
+
+
+
+
+
