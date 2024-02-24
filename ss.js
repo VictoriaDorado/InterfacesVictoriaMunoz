@@ -42,6 +42,7 @@ function inicializar(cartasporfila, cartasporcolumna) {
   document.getElementById('mensaje').style.display = 'none';
   document.getElementById('seleccionarDificultad').style.display = 'none';
   document.getElementById('botontexto').style.display = 'none';
+  document.getElementById('texto').style.display = 'none';
   
  
   mostrarCuentaRegresiva().then(() => {
@@ -304,7 +305,7 @@ function reiniciarJuego() {
   document.getElementById('numeroclicks').style.display = 'none';
   document.getElementById("botonreinicio").style.display = 'none';
   document.getElementById("cuentaRegresiva2").style.display = 'none';
-
+  document.getElementById('texto').style.display = 'block';
 
 }
 
