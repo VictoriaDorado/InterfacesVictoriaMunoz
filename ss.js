@@ -1,3 +1,5 @@
+// constantes y variables globales
+
 const contenedor = document.getElementById('contenedor');
 const mensaje = document.getElementById('mensaje');
 
@@ -9,6 +11,7 @@ let juegoIniciado = false;
 let numeros;
 var segundos;
 
+// Según la dificultad elegida dse aplica un array diferente con una longitud de numeros, tiempo y distribucion de las cartas distinta
 function establecerDificultad(difficulty) {
   let cartasporfila, cartasporcolumna;
 
@@ -32,6 +35,7 @@ function establecerDificultad(difficulty) {
   inicializar(cartasporfila, cartasporcolumna);
 }
 
+// 
 function inicializar(cartasporfila, cartasporcolumna) {
   var elementoFrases = document.getElementsByClassName('frases')[0];
 
@@ -39,51 +43,70 @@ function inicializar(cartasporfila, cartasporcolumna) {
     elementoFrases.style.display = 'none';
   }
 
+// hacemos que desaparezcan los elementos de la pantalla de inicio
   document.getElementById('mensaje').style.display = 'none';
   document.getElementById('seleccionarDificultad').style.display = 'none';
   document.getElementById('botontexto').style.display = 'none';
   document.getElementById('texto').style.display = 'none';
+  document.querySelector('h1').style.display = 'none';
+  // document.body.style.backgroundImage = 'url("aa.jpg")';  // Me planteé la opción de cambiarle el fondo cuando comenzara el juego pero no me convencía el resultado.
+
+
   
- 
+//  Mostramos una cuenta atrás 3, 2, 1...
   mostrarCuentaRegresiva().then(() => {
     contenedor.style.display = 'grid';
     contenedor.style.gridTemplateColumns = `repeat(${cartasporfila}, 1fr)`;
     contenedor.style.gridTemplateRows = `repeat(${cartasporcolumna}, 1fr)`;
     contenedor.style.gridGap = '10px'; // Ajusta el espacio entre las celdas del grid
 
-    barajarcartas();
+    barajarcartas(); // Baraja y mezcla las cartas para que salgan cada vez en una posición diferente
     mostrarmensaje('Encuentra todos los pares de tarjetas.');
   });
 }
 
+//////////////////////////////////////////////////////////// -PROMESA- //////////////////////////////////////////////////////////////////////
+                                                  // SetInterval y clearInterval
 function mostrarCuentaRegresiva() {
+  // Crear una promesa que se resolverá cuando la cuenta regresiva haya terminado
   return new Promise((resolve) => {
+    // Inicializar el contador en 2 porque en el mensaje inicial ya tenemos el 3
     let contador = 2;
 
     const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva");
 
     cuentaRegresivaElemento.style.display = "block";
-    cuentaRegresivaElemento.innerHTML = `Comenzando en 3`;
+    cuentaRegresivaElemento.innerHTML = `Comenzando en 3`;    //contenido inicial
 
+    // Establecer un intervalo que se ejecuta cada segundo
     const intervalo = setInterval(() => {
+      // Actualizar el contenido con el valor actual del contador
       cuentaRegresivaElemento.innerHTML = `Comenzando en ${contador}`;
       contador--;
 
+      // Verificar si el contador es menor que 0
       if (contador < 0) {
+        // Limpiar el intervalo y ocultar el elemento
         clearInterval(intervalo);
         cuentaRegresivaElemento.innerHTML = "";
         cuentaRegresivaElemento.style.display = "none";
+        // Resolver la promesa
         resolve();
       }
-    }, 1000);
+    }, 1000); // El intervalo se ejecuta cada 1000 milisegundos (1 segundo)
   });
 }
 
+
+
+
+// Para que las cartas salgan cada vez en orden distinto
 function barajarcartas() {
   document.getElementById('mensaje').style.display = 'block';
   document.getElementById('cuentaclicks').style.display = 'block';
+
   // Crear una copia de las cartas duplicadas. Tenemos un array con los simbolos duplicados
-  const todascartas = numeros.concat(numeros); //numeros.concat(numeros.slice())
+  const todascartas = numeros.concat(numeros); //numeros.concat(numeros.slice())  --> otra opción
 
   // Barajar las cartas
   for (let i = 0; i < todascartas.length; i++) {
@@ -96,20 +119,17 @@ function barajarcartas() {
 
   // Asignar el array barajado a la variable cartas
   cartas = todascartas;
-
-  // Renderizar las cartas
   devolvercartas();
   juegoIniciado = true;
 
-  // Mostrar el contador
+// Contador del contador de clicks del componente web 
   const contador = document.querySelector('num-counter-1');
   contador.setVisibility(true);
-
-
-
 }
 
 
+
+// creamos los divs de las cartas y los posicionamos
 function devolvercartas() {
   contenedor.innerHTML = '';
 
@@ -126,9 +146,6 @@ function devolvercartas() {
   }
   ajustarMargenes();
 
-
-
-
   iniciarCuentaAtras(segundos)
   .then((mensaje) => {
 
@@ -144,7 +161,43 @@ function devolvercartas() {
 
 }
 
-// Agrega esta función al final del código
+
+
+
+//////////////////////////////////////////////////////////// -PROMESA- //////////////////////////////////////////////////////////////////////
+                                                  // SetInterval y clearInterval
+function iniciarCuentaAtras(tiempo) {
+return new Promise((resolve, reject) => {
+let tiempoRestante = tiempo;
+
+const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva2");
+
+cuentaRegresivaElemento.style.display = "block";
+cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
+
+const intervalo = setInterval(() => {
+tiempoRestante--;
+
+if (tiempoRestante >= 0 && !bandera) {
+cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
+} else {
+clearInterval(intervalo);
+
+if (!bandera) {
+// cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
+finalizarJuego();
+// Rechaza la promesa con un mensaje de tiempo agotado
+reject("¡Tiempo agotado!");
+} else {
+// Resuelve la promesa si la bandera es verdadera
+resolve("¡Enhorabuena, has ganado!");
+}
+}
+}, 1000);
+});
+}
+                                                  
+// Desaparece las cartas
 function ajustarMargenes() {
   const tarjetas = document.querySelectorAll('.card');
   tarjetas.forEach((tarjeta, index) => {
@@ -184,6 +237,9 @@ function girarcarta(event) {
     comprobariguales();
   }
 }
+
+
+
 let c = 0;
 var bandera = false;
 function comprobariguales() {
@@ -231,39 +287,6 @@ function mostrarOcultarTexto() {
 
 
 
-function iniciarCuentaAtras(tiempo) {
-  return new Promise((resolve, reject) => {
-    let tiempoRestante = tiempo;
-
-    const cuentaRegresivaElemento = document.getElementById("cuentaRegresiva2");
-
-    cuentaRegresivaElemento.style.display = "block";
-    cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
-
-    const intervalo = setInterval(() => {
-      tiempoRestante--;
-
-      if (tiempoRestante >= 0 && !bandera) {
-        cuentaRegresivaElemento.innerHTML = `Tiempo restante: ${tiempoRestante} segundos`;
-      } else {
-        clearInterval(intervalo);
-
-        if (!bandera) {
-          // cuentaRegresivaElemento.innerHTML = "¡Tiempo agotado!";
-          finalizarJuego();
-          // Rechaza la promesa con un mensaje de tiempo agotado
-          reject("¡Tiempo agotado!");
-        } else {
-          // Resuelve la promesa si la bandera es verdadera
-          resolve("¡Enhorabuena, has ganado!");
-        }
-      }
-    }, 1000);
-  });
-}
-
-
-
 function finalizarJuego() {
 
   juegoIniciado = false;
@@ -278,6 +301,14 @@ function finalizarJuego() {
 }
 
 function reiniciarJuego() {
+
+  // Agregar un setTimeout de 1 segundo antes de reiniciar
+  setTimeout(() => {
+    reiniciarJuegoInternal();
+  }, 1000);
+}
+
+function reiniciarJuegoInternal() {
   // Restablecer variables a su estado inicial
   cartas = [];
   cartasgiradas = [];
@@ -287,11 +318,10 @@ function reiniciarJuego() {
   c = 0;
   bandera = false;
 
- // Reiniciar el contador de clics
+  // Reiniciar el contador de clics
   const contador = document.querySelector('num-counter-1');
   contador.x = 0;
   contador.render(); // Renderiza el contador con el nuevo valor
-
 
   // Restablecer elementos del DOM
   contenedor.innerHTML = '';
@@ -305,9 +335,11 @@ function reiniciarJuego() {
   document.getElementById('numeroclicks').style.display = 'none';
   document.getElementById("botonreinicio").style.display = 'none';
   document.getElementById("cuentaRegresiva2").style.display = 'none';
-  document.getElementById('texto').style.display = 'block';
+  document.getElementById('texto').style.display = 'none';
+  document.querySelector('h1').style.display = 'block';
 
 }
+
 
 
 
