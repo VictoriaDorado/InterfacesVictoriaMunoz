@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego</title>
+  <link rel="stylesheet" type="text/css" href="VictoriaMuñozDorado2_Práctica5.css">
+
+  
+</head>
+<body>
+<div class="divprincipal">
+    <h1>¡EMPAREJA!</h1>
+    <h2 class="frases">Escoge un nivel de dificultad</h2>
+    <div id="seleccionarDificultad">
+        <button onclick="establecerDificultad('bajo')">dificultad 1</button>
+        <button onclick="establecerDificultad('medio')">dificultad 2</button>
+        <button onclick="establecerDificultad('alto')">dificultad 3</button>
+      </div>
+      
+     
+      <br><br>
+
+      <button id="botontexto" onclick="mostrarOcultarTexto()">Instrucciones del juego</button>
+      <div id="texto" style="display: none;">
+        <p>Esto es un juego de velocidad. Enuentra las parejas antes de que se acabe el tiempo... pero ¡Cuidado, no des clicks de más! Debes ser rápido pero preciso. </p>
+      </div>
+
+  <div id="contenedor" style="display: none;"></div>
+  <div id="mensaje"></div>
+  <div id="numeroclicks" style="display: none;"></div>
+  <div id="cuentaRegresiva"></div>
+  <div id="cuentaRegresiva2"></div>
+  <div id="cuentaclicks"><num-counter-1></num-counter-1></div> <!-- web component -->
+  
+  <button id="botonreinicio" style="display: none;">Reiniciar</button>
+
+</div>
+<script src="VictoriaMuñozDorado2_Práctica5.js"></script>
+</body>
+</html>

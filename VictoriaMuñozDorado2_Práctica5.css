@@ -1,0 +1,198 @@
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  background-image: url('synth.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.25em auto;
+  justify-content: space-between;
+  border: 0.125em solid #333;
+  border-radius: 1em;
+  background-color: #fff;
+  padding: 0.5em;
+  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 30em;
+  height: 30em;
+}
+
+.card {
+  width: calc(100% / var(--num-cartas-por-fila) - 0.3125em); /* Ajusta el ancho dinámicamente */
+  height: calc(100% / var(--num-cartas-por-columna) - 0.3125em); /* Ajusta la altura dinámicamente */
+  margin: 0.15em;
+  background-color: #fbebff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  transition: background-color 0.3s ease;
+  padding: 0.15em;
+}
+
+
+
+#texto{
+  max-width: 400px;
+  margin: 20px auto;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: #c475ce;
+  padding: 20px;
+  box-shadow: 0 4px 8px #fff;
+  text-align: justify;
+  color: #fff;
+  display: none; /* Inicialmente oculto */
+
+}
+
+.card:hover {
+  background-color: #b3b2b2;
+}
+
+
+.hidden {
+  visibility: hidden;
+  margin: 0; 
+  height: 0; 
+}
+
+
+#mensaje {
+  margin: 0.5em;
+  font-weight: bold;
+  color: #eae7e7;
+}
+
+#seleccionarDificultad {
+  margin-top: 20px;
+}
+
+
+button {
+  background-color: #c475ce;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+  border: 2px solid #fff;
+  max-width: 10em;
+}
+
+button:hover {
+  background-color: #e9acf1;
+}
+
+
+.divprincipal {
+ 
+  border: rgb(174, 116, 180) solid 2px;
+  height: 40em;
+  width: 40em;
+  background-color: #4f0c55;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+
+}
+
+.frases{
+  color: #fff;
+}
+
+
+#cuentaRegresiva{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; 
+  background-color: #c475ce; 
+  padding: 20px;
+  border-radius: 10px;
+  display: none; /*Inicialmente oculto*/
+}
+
+
+#cuentaRegresiva2{
+  position: fixed;
+  top: 9%;
+  left: 76%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff; 
+  background-color: #c475ce;
+  padding: 1em;
+  border-radius: 10px;
+  display: none; 
+ }
+
+#botonreinicio{
+  margin: 2em;
+}
+
+#cuentaclicks {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  float: right;
+  width: 90px;
+  height: 90px;
+  top: 17%;
+  left: 76%;
+  position: fixed;
+  font-size: 18px;
+  background-color: #c475ce; 
+  border-radius: 10px;
+  display: none;
+}
+
+#cuentaclicks num-counter-1 {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#numeroclicks{
+  text-align: justify;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/* Estilos para el título h1. Se que no se recomienda asignar estilos directamente a etiquetas html, pero en este caso al ser una web sencilla no hay problema */
+h1 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  color: #d7a9dd; 
+  text-shadow: 2px 2px 4px #4f0c55; 
+  font-size: 4em;
+  letter-spacing: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+h1:hover {
+  color: #f6d8fa; 
+  transform: scale(1.1);
+}
